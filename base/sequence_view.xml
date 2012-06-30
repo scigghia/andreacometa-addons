@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!-- View con i protocolli recuperati -->
+
+        <record id="recupero_protocolli_tree_view" model="ir.ui.view">
+            <field name="name">ir.protocolli_da_recuperare.tree</field>
+            <field name="model">ir.protocolli_da_recuperare</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <tree string="Protocolli da recuperare" editable="top">
+                    <field name="name"/>
+                    <field name="sequence_id" />
+                    <field name="protocollo"/>
+                    <field name="data"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="recupero_protocolli_search" model="ir.ui.view">
+            <field name="name">ir.protocolli_da_recuperare.search</field>
+            <field name="model">ir.protocolli_da_recuperare</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Protocolli da recuperare">
+                    <field name="name" select="1"/>
+                    <field name="sequence_id" select="1"/>
+                    <field name="protocollo" select="1"/>
+                    <field name="data" select="1"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_recupero_protocolli" model="ir.actions.act_window">
+            <field name="name">Sequenze da recuperare</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ir.protocolli_da_recuperare</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="recupero_protocolli_tree_view"/>
+            <field name="search_view_id" ref="recupero_protocolli_search"/>
+            <field name="context">{}</field>
+        </record>
+
+        <menuitem action="action_recupero_protocolli" id="menu_recupero_protocolli" parent="base.next_id_5"/>
+    </data>
+</openerp>

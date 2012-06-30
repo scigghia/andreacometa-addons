@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+
+RP_ir_protocolli_da_recuperare_user,ir_protocolli_da_recuperare user,model_ir_protocolli_da_recuperare,group_recupero_protocolli,1,0,1,1
+RP_ir_protocolli_da_recuperare_manager,ir_protocolli_da_recuperare manager,model_ir_protocolli_da_recuperare,group_recupero_protocolli,1,0,1,1
