@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+	<!-- ========================================================== -->
+	<!-- 						PRODUCT.PRODUCT						-->
+	<!-- ========================================================== -->
+
+	<record id="product_search_form_view_supplier_code" model="ir.ui.view">
+		<field name="name">product.product.search.supplier_code</field>
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_search_form_view"/>
+		<field name="arch" type="xml">
+			<field name="name" position="after" >
+				<field name="suppliers_code" />
+			</field>
+		</field>
+	</record>
+
+
+	<record id="product_product_tree_view_suppliers_code" model="ir.ui.view">
+		<field name="name">product.product.tree.suppliers_code</field>
+		<field name="model">product.product</field>
+		<field name="inherit_id" ref="product.product_product_tree_view"/>
+		<field name="arch" type="xml">
+			<field name="name" position="after" >
+				<field name="suppliers_code" invisible="1"/>
+			</field>
+		</field>
+	</record>
+
+</data>
+</openerp>

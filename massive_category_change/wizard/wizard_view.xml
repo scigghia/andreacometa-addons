@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+	<data>
+
+		<!-- ====================================================== -->
+		<!-- 				WIZARD MASSIVE CATEGORY CHANGE			-->
+		<!-- ====================================================== -->
+		<record id="wzd_massive_category_change_wizard" model="ir.ui.view">
+			<field name="name">wzd.massive_category_change.wizard</field>
+			<field name="model">wzd.massive_category_change</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Change Category">
+					<separator string="Category" colspan="4"/>
+					<field name="name" colspan="4" nolabel="1" required="1"/>
+					<button string="Close" special="cancel" icon="gtk-cancel" />
+					<button string="Change" name="change" type="object" icon="gtk-ok" />
+				</form>
+			</field>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 				REPORT REVIEW MANCANTI RICHIAMO			-->
+		<!-- ====================================================== -->
+		<act_window name="Massive Category Change"
+			res_model="wzd.massive_category_change"
+			src_model="product.product"
+			view_mode="form"
+			target="new"
+			view_id="wzd_massive_category_change_wizard"
+			id="act_wzd_massive_category_change"/>
+
+	</data>
+</openerp>

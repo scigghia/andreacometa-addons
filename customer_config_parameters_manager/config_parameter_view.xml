@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+		<!--========================================================-->
+		<!--						CONFIG - TREE					-->
+		<!--========================================================-->
+		<record model="ir.ui.view" id="view_ir_config_parameters_tree">
+			<field name="name">ir.config_parameter.tree</field>
+			<field name="model">ir.config_parameter</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Vendite" editable="top">
+					<field name="key" />
+					<field name="value"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 						CONFIG - ACTION 				-->
+		<!-- ====================================================== -->
+		<record model="ir.actions.act_window" id="action_ir_config_parameters">
+				<field name="name">Customer Parameters</field>
+				<field name="type">ir.actions.act_window</field>
+				<field name="res_model">ir.config_parameter</field>
+				<field name="view_type">form</field>
+				<field name="view_mode">tree,form</field>
+				<field name="view_id" ref="view_ir_config_parameters_tree"/>
+				<field name="domain">[('custom', '=', 1)]</field>
+				<field name="context">{'default_custom':1}</field>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 						CONFIG - MENU 					-->
+		<!-- ====================================================== -->
+		<menuitem parent="base.menu_config" action="action_ir_config_parameters" id="menu_ir_config_parameters" name="Parametri Globali del Cliente" groups="base.group_extended"/>
+
+	</data>
+</openerp>
