@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<openerp>
+	<data>
+
+	<!-- ======================================================	-->
+	<!--  						INVOICE FORM					-->
+	<!-- ======================================================	-->
+	<record id="view_invoice_form_imm_diff" model="ir.ui.view">
+		<field name="name">account.invoice.form.imm_diff</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.invoice_form"/>
+		<field name="arch" type="xml">
+			<button name="%(account.account_invoices)d" position="replace">
+				<button name="print_imm_diff_invoice" string="Print Invoice" type="object" icon="gtk-print" states="open,paid,proforma,sale,proforma2"/>
+			</button>
+		</field>
+	</record>
+
+	</data>
+</openerp>
