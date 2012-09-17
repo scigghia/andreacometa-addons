@@ -20,5 +20,9 @@ class account_invoice(osv.osv):
 	_columns = {
 		'immediate' : fields.boolean('Immediate'),
 	}
+	
+	_defaults = {
+		'immediate' : False,
+	}
 
 account_invoice()
