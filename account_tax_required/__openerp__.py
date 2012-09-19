@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 ##############################################################################
 #
-#    Modulo realizzato da Apruzzese Francesco
-#    Compatible with OpenERP release 6.0.0
+#    Personalizzazione realizzata da Francesco OpenCode Apruzzese (f.apruzzese@andreacometa.it)
+#    Compatible with OpenERP release 6.1.X
 #    Copyright (C) 2010 Andrea Cometa. All Rights Reserved.
-#    Email: cescoap@gmail.com
+#    Email: info@andreacometa.it, f.apruzzese@andreacometa.it
 #    Web site: http://www.andreacometa.it
 #
 ##############################################################################
@@ -14,8 +14,8 @@
     'version': '0.1',
     'category': 'Finance',
     'description': """
-    ITA : Modulo per rendere obbligatoria almeno un'aliquota iva nelle righe di fattura
-    ENG: Module to make required at least a rate of VAT in the invoice lines
+    ITA: Rende obbligatoria almeno un'aliquota iva nelle righe di fattura
+    ENG: Makes mandatory at least one tax rate in the invoice lines
     """,
     'author': 'www.andreacometa.it',
     'website': 'http://www.andreacometa.it',
@@ -24,4 +24,5 @@
     "installable": True,
     "depends" : ['account', 'account_invoice_layout'],
     "update_xml" : ['account/account_view.xml',],
+    "images" : ['images/image.png'],
 }
