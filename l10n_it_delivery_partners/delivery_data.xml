@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+  
+
+        <record id="delivery_partner_bartolini" model="delivery.carrier">
+            <field name="name">Bartolini</field>
+            <field name="partner_id" ref="partner_delivery_bartolini" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+
+        <record id="delivery_partner_ups" model="delivery.carrier">
+            <field name="name">UPS</field>
+            <field name="partner_id" ref="partner_delivery_ups" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+        
+        <record id="delivery_partner_tnt" model="delivery.carrier">
+            <field name="name">TNT</field>
+            <field name="partner_id" ref="partner_delivery_tnt" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+
+        <record id="delivery_partner_sda" model="delivery.carrier">
+            <field name="name">SDA</field>
+            <field name="partner_id" ref="partner_delivery_sda" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+
+        <record id="delivery_partner_gls" model="delivery.carrier">
+            <field name="name">GLS</field>
+            <field name="partner_id" ref="partner_delivery_gls" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+
+        <record id="delivery_partner_poste_italiane" model="delivery.carrier">
+            <field name="name">Poste Italiane</field>
+            <field name="partner_id" ref="partner_delivery_poste_italiane" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+ 
+        <record id="delivery_partner_dhl" model="delivery.carrier">
+            <field name="name">DHL</field>
+            <field name="partner_id" ref="partner_delivery_dhl" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+        
+    </data>
+</openerp>

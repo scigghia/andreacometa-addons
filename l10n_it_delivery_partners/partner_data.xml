@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Bartolini -->
+        <record id="partner_delivery_bartolini" model="res.partner">
+            <field name="name">Bartolini - Brt S.p.a.</field>
+            <field name="website">http://www.brt.it</field>
+            <field name="vat">IT04507990150</field>
+        </record>
+        
+        <record id="partner_address_delivery_bartolini" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_bartolini"/>
+            <field name="name">Bartolini</field>
+            <field name="type">default</field>
+            <field name="city">Milano</field>
+            <field name="zip">20123</field>
+            <field name="street">Piazza Diaz n. 7</field>
+            <field name="phone">0516015411</field>
+            <field name="fax">051530365</field>
+        </record>
+
+        <!-- UPS -->
+        <record id="partner_delivery_ups" model="res.partner">
+            <field name="name">UPS</field>
+            <field name="website">http://www.ups.com</field>
+        </record>
+        
+        <record id="partner_address_delivery_ups" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_ups"/>
+            <field name="name">UPS</field>
+            <field name="type">default</field>
+        </record>
+
+        <!-- TNT -->
+        <record id="partner_delivery_tnt" model="res.partner">
+            <field name="name">TNT</field>
+            <field name="website">http://www.tntitaly.it/</field>
+            <field name="vat">IT09399880153</field>
+        </record>
+
+        <record id="partner_address_delivery_tnt" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_tnt"/>
+            <field name="name">TNT</field>
+            <field name="type">default</field>
+            <field name="city">San Mauro T.se</field>
+            <field name="zip">10099</field>
+            <field name="street">Corso Lombardia 63</field>
+            <field name="phone">0112226111</field>
+        </record>
+
+        <!-- SDA -->
+        <record id="partner_delivery_sda" model="res.partner">
+            <field name="name">SDA</field>
+            <field name="vat">IT05714511002</field>
+            <field name="website">http://www.sda.it</field>
+        </record>
+
+        <record id="partner_address_delivery_sda" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_sda"/>
+            <field name="name">SDA</field>
+            <field name="type">default</field>
+        </record>
+
+        <!-- GLS -->
+        <record id="partner_delivery_gls" model="res.partner">
+            <field name="name">GLS</field>
+            <field name="website">http://www.gls-italy.com</field>
+        </record>
+
+        <record id="partner_address_delivery_gls" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_gls"/>
+            <field name="name">GLS</field>
+            <field name="type">default</field>
+        </record>
+
+        <!-- POSTE ITALIANE -->
+        <record id="partner_delivery_poste_italiane" model="res.partner">
+            <field name="name">Poste Italiane</field>
+            <field name="website">https://www.poste.it</field>
+        </record>
+
+        <record id="partner_address_delivery_poste_italiane" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_poste_italiane"/>
+            <field name="name">Poste Italiane</field>
+            <field name="type">default</field>
+        </record>
+        
+        <!-- DHL -->
+        <record id="partner_delivery_dhl" model="res.partner">
+            <field name="name">DHL</field>
+            <field name="website">http://www.dhl.it</field>
+        </record>
+
+        <record id="partner_address_delivery_dhl" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_dhl"/>
+            <field name="name">DHL</field>
+            <field name="type">default</field>
+        </record>
+
+    </data>
+</openerp>
