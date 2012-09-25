@@ -13,7 +13,7 @@
 	'version': '1.0',
 	'category': 'Accounting & Finance',
 	'description': """ITA: Aggiunge la possibilità di calcolare le scadenze ripartendole equamente\n
-	ENG: Adds the ability to calculate maturities basing them equally""",
+ENG: Adds the ability to calculate maturities basing them equally""",
 	'author': 'Andrea Cometa',
 	'website': 'http://www.andreacometa.it',
 	'depends': ['account'],
