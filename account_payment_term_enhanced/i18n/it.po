@@ -1,0 +1,57 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_payment_term_enhanced
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-26 08:42+0000\n"
+"PO-Revision-Date: 2012-09-26 08:42+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,days2:0
+msgid "Day of the Month"
+msgstr "Giorno del mese"
+
+#. module: account_payment_term_enhanced
+#: model:ir.model,name:account_payment_term_enhanced.model_account_payment_term
+msgid "Payment Term"
+msgstr "Termine di pagamento"
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,days:0
+msgid "Number of Days"
+msgstr "Numero di Giorni"
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,fairly:0
+msgid "Distribute fairly"
+msgstr "Dividi equamente"
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,maturities:0
+msgid "Number of maturities"
+msgstr "Numero di scadenze"
+
+#. module: account_payment_term_enhanced
+#: help:account.payment.term,maturities:0
+msgid "Number of maturities to divide the total amount"
+msgstr "Numero di scadenze su cui dividere l'importo totale"
+
+#. module: account_payment_term_enhanced
+#: help:account.payment.term,days2:0
+msgid "Day of the month, set -1 for the last day of the current month. If it's positive, it gives the day of the next month. Set 0 for net days (otherwise it's based on the beginning of the month)."
+msgstr "Giorno del mese, impostare a -1 per l'ultimo giorno del mese corrente. Se positivo, fornisce il giorno del prossimo mese. Impostare a 0 per i giorni precisi (altrimenti basato sull'inizio del mese)."
+
+#. module: account_payment_term_enhanced
+#: help:account.payment.term,days:0
+msgid "Number of days between every maturity from the day of month.If Date=15/01, Number of Days=22, Day of Month=-1, then the due date is 28/02."
+msgstr "Numero di giorni tra ogni scadenza a partire dal giorno del mese indicato. Se la data=15/01, Numero di giorni=22, Giorno del mese=-1, allora la data di scadenza è il 28/02."
+
