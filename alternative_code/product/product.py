@@ -44,12 +44,14 @@ class product_product(osv.osv):
 
 	def name_search(self, cr, user, name, args=None, operator='ilike', context=None, limit=100):
 		if name:
-			args = ['|', ('alternative_code', operator, name)] + args
+			args = ['|', ('alternative_code', operator, '%' + name + '%')] + args
 			print args
 		res = super(product_product,self).name_search(cr, user, name, args, operator='ilike', context=None, limit=100)
 		return res
 
 	#def _codici_alternativi_search(self, cr, uid, obj, name, args, context):
+		#print '---------'
+		#print args
 		#for arg in args:
 			#if arg[0] == 'codici_alternativi' and arg[1] == 'ilike':
 				## ----- Obtain all the products ids
@@ -57,7 +59,7 @@ class product_product(osv.osv):
 				#prds = self.browse(cr, uid, ids, context)
 				#prd_available = []
 				#for prd in prds:
-					#if arg[2] in prd.codici_alternativi:
+					#if arg[2] in prd.alternative_code:
 						#prd_available.append(prd.id)
 				#return [('id', 'in', prd_available)]
 		#return []
@@ -73,7 +75,7 @@ class product_product(osv.osv):
 		return res
 
 	_columns = {
-		'alternative_code' : fields.function(_alternative_code, string="Alternative Code", type='char', size=128, store=True),
+		'alternative_code' : fields.function(_alternative_code, string="Alternative Code", type='char', size=256, store=True),
 		'alternative_code_ids' : fields.one2many('product.alternative_code','product_id','Alternative Codes'),
 		}
 
