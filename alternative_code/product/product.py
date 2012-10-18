@@ -45,24 +45,8 @@ class product_product(osv.osv):
 	def name_search(self, cr, user, name, args=None, operator='ilike', context=None, limit=100):
 		if name:
 			args = ['|', ('alternative_code', operator, '%' + name + '%')] + args
-			print args
 		res = super(product_product,self).name_search(cr, user, name, args, operator='ilike', context=None, limit=100)
 		return res
-
-	#def _codici_alternativi_search(self, cr, uid, obj, name, args, context):
-		#print '---------'
-		#print args
-		#for arg in args:
-			#if arg[0] == 'codici_alternativi' and arg[1] == 'ilike':
-				## ----- Obtain all the products ids
-				#ids = self.search(cr, uid, [('active', '=', True)], context=context)
-				#prds = self.browse(cr, uid, ids, context)
-				#prd_available = []
-				#for prd in prds:
-					#if arg[2] in prd.alternative_code:
-						#prd_available.append(prd.id)
-				#return [('id', 'in', prd_available)]
-		#return []
 
 	def _alternative_code(self, cr, uid, ids, name, arg, context=None):
 		res = {}
