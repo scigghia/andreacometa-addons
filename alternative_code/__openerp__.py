@@ -21,7 +21,11 @@
     'license': 'AGPL-3',
     "depends" : ['product'],
     "init_xml" : [],
-    "update_xml" : ['product/product_view.xml',],
+    "update_xml" : [
+        'product/product_view.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        ],
     "demo_xml" : [],
     "active": False,
     "installable": True,

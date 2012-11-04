@@ -26,18 +26,11 @@ class product_product(osv.osv):
 	_name = 'product.product'
 	_inherit = 'product.product'
 
-	def _suppliers_code_search(self, cr, uid, obj, name, args, context):
-		for arg in args:
-			if arg[0] == 'suppliers_code' and arg[1] == 'ilike':
-				# ----- Obtain all the products ids
-				ids = self.search(cr, uid, [('active', '=', True)], context=context)
-				prds = self.browse(cr, uid, ids, context)
-				prd_available = []
-				for prd in prds:
-					if arg[2] in prd.suppliers_code:
-						prd_available.append(prd.id)
-				return [('id', 'in', prd_available)]
-		return []
+	def name_search(self, cr, user, name, args=None, operator='ilike', context=None, limit=100):
+		if name:
+			args = ['|', ('suppliers_code', operator, '%' + name + '%')] + args
+		res = super(product_product,self).name_search(cr, user, name, args, operator='ilike', context=None, limit=100)
+		return res
 
 	def _suppliers_code(self, cr, uid, ids, name, arg, context=None):
 		res = {}
@@ -50,7 +43,7 @@ class product_product(osv.osv):
 		return res
 
 	_columns = {
-		'suppliers_code': fields.function(_suppliers_code, type='char', size=128, string='Supplier Code', fnct_search=_suppliers_code_search, store=False),
+		'suppliers_code': fields.function(_suppliers_code, type='char', size=256, string='Supplier Code', store=True),
 		}
 
 product_product()
