@@ -4,13 +4,13 @@
 #    Personalizzazione realizzata da Francesco OpenCode Apruzzese (f.apruzzese@andreacometa.it)
 #    Compatible with OpenERP release 6.1.X
 #    Copyright (C) 2012 Andrea Cometa. All Rights Reserved.
-#    Email: cescoap@gmail.com, info@andreacometa.it
+#    Email: openerp@andreacometa.it
 #    Web site: http://www.andreacometa.it
 #
 ##########################################################################
 
 from osv import fields, osv
-
+from tools.translate import _
 
 class account_invoice(osv.osv):
 
