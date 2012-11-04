@@ -37,7 +37,7 @@
 		<field name="inherit_id" ref="product.product_product_tree_view"/>
 		<field name="arch" type="xml">
 			<field name="name" position="after" >
-				<field name="alternative_code" invisible="1"/>
+				<field name="alternative_code"/>
 			</field>
 		</field>
 	</record>
