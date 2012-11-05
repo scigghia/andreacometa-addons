@@ -28,7 +28,10 @@ class product_product(osv.osv):
 
 	def name_search(self, cr, user, name, args=None, operator='ilike', context=None, limit=100):
 		if name:
-			args = ['|', ('suppliers_code', operator, '%' + name + '%')] + args
+			if args:
+				args = ['|', ('suppliers_code', operator, '%' + name + '%')] + args
+			else:
+				args = ['|', ('suppliers_code', operator, '%' + name + '%')]
 		res = super(product_product,self).name_search(cr, user, name, args, operator='ilike', context=None, limit=100)
 		return res
 
