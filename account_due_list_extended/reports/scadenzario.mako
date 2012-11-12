@@ -11,13 +11,11 @@
 
     <table class="font_9 w100 bordi_arrotondati">
         <tr>
-			<td class="w20">Numero Movimento</td>
-			<td class="w5"><p class="centered">Partner</p></td>
-			<td class="w5"><p class="centered">Termini</p></td>
-			<td class="w10"><p class="centered">Tipo</p></td>
+			<td class="w10">Sezionale</td>
+			<td class="w25"><p class="centered">Partner</p></td>
 			<td class="w10"><p class="centered">Scadenza</p></td>
 			<td class="w10"><p class="centered">Fattura</p></td>
-			<td class="w10"><p class="centered">Pagamento</p></td>
+			<td class="w15"><p class="centered">Pagamento</p></td>
 			<td class="w10"><p class="centered">Importo</p></td>
 			<td class="w10"><p class="centered">Dare</p></td>
 			<td class="w10"><p class="centered">Avere</p></td>
@@ -29,50 +27,38 @@
 	<div class="clear"></div>
 
     <table id="content" class="font_9 w100">
+		<% tot_importo = 0 %>
+		<% tot_dare = 0 %>
+		<% tot_avere = 0 %>
 		%for line in objects:    
 			<tr>
-				<td class="w20">${line.name or ''}</td>
-				<td class="w5"><p class="centered">${line.move_id.partner_id.name or ''}</p></td>
-				<td class="w5"><p class="centered">Termini</p></td>
-				<td class="w10"><p class="centered">Tipo</p></td>
-				<td class="w10"><p class="centered">${line.date_maturity or line.date}</p></td>
-				<td class="w10"><p class="centered">Fattura</p></td>
-				<td class="w10"><p class="centered">Pagamento</p></td>
-				<td class="w10"><p class="centered">${formatLang(line.amount_residual or 0.00, digits=get_digits(dp='Account'))}</p></td>
-				<td class="w10"><p class="centered">${formatLang(line.debit or 0.00, digits=get_digits(dp='Account'))}</p></td>
-				<td class="w10"><p class="centered">${formatLang(line.credit or 0.00, digits=get_digits(dp='Account'))}</p></td>
+				<td class="w10"><p style="text-align:left;">${line.invoice.journal_id.code or ''}</p></td>
+				<td class="w25"><p style="text-align:left;">${line.move_id.partner_id.name or ''}</p></td>
+				<td class="w10"><p style="text-align:left;">${line.date_maturity or line.date}</p></td>
+				<td class="w10"><p style="text-align:left;">${line.invoice.number or ''}</p></td>
+				<td class="w15"><p style="text-align:left;">${line.invoice.payment_term.name or ''}</p></td>
+				<td class="w10"><p style="text-align:right;">${formatLang(line.amount_residual or 0.00, digits=get_digits(dp='Account'))}</p></td>
+				<td class="w10"><p style="text-align:right;">${formatLang(line.debit or 0.00, digits=get_digits(dp='Account'))}</p></td>
+				<td class="w10"><p style="text-align:right;">${formatLang(line.credit or 0.00, digits=get_digits(dp='Account'))}</p></td>
 			</tr>
+			%if line.debit == 0.0:
+				<%tot_importo -= line.amount_residual %>
+			%else:
+				<%tot_importo += line.amount_residual %>
+			%endif
+			<% tot_dare += line.debit %>
+			<% tot_avere += line.credit %>
         %endfor
+        <tr><td colspan=8><hr style="width:100%"></td></tr>
 		<tr style="height:100%">
-			<td><script>
-				var divh = document.getElementById('content').offsetHeight;
-				var max_h_1 = 430;
-				/*var max_h_n = 550;*/
-				var max_h_n = max_h_1 + 10
-
-				var is_one = divh/max_h_1;
-
-				if (is_one<=0) {
-					is_one = true;
-					document.getElementById('content').style.height=max_h_1;
-				}
-				else {
-					is_one = false;
-				}
-
-				if (!is_one) {
-					var pages = (Math.ceil((divh-max_h_1)/max_h_n)).toFixed(1);
-
-					document.getElementById('content').style.height=max_h_n*pages+max_h_1;
-				}
-				</script>
-			</td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td class="w10">&nbsp;</td>
+			<td class="w25">&nbsp;</td>
+			<td class="w10">&nbsp;</td>
+			<td class="w10">&nbsp;</td>
+			<td class="w15">&nbsp;</td>
+			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_importo}</p></td>
+			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_dare}</p></td>
+			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_avere}</p></td>
 		</tr>
     </table>
     

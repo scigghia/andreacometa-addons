@@ -64,6 +64,9 @@
 			<field name="domain">['|','&amp;',('account_id.type','=','payable'),('debit','=',0),'&amp;',('account_id.type','=','receivable'),('credit','=',0)]</field>
 			<field name="context">{'search_default_unreconciled_filter':1}</field>
 		</record>
+		
+		<menuitem name="Due Register" parent="account.menu_finance_entries" action="account_due_list.action_invoice_payments" id="account_due_list.menu_action_invoice_payments" sequence="5"/>
+
 
 		<!-- ====================================================== -->
 		<!-- 				PAYMENT TERM TYPE TREE					-->
