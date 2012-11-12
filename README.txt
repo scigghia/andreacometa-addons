@@ -1,2 +1,2 @@
 AMiGA rulez
-but Linux is bettere!!! Developers Developers Developers!
+but Linux is better!!! Developers Developers Developers!
