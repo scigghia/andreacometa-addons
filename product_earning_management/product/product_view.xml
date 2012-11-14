@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>	
+
+	<!--=========================================================
+							PRODUCT EARNING TREE
+	==========================================================-->
+	<record id="product_product_tree_view_earning_management" model="ir.ui.view">
+		<field name="name">product.product.earning_management.tree</field>
+		<field name="model">product.product</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree colors="red:virtual_available&lt;0;blue:virtual_available&gt;=0 and state in ('draft', 'end', 'obsolete');black:virtual_available&gt;=0 and state not in ('draft', 'end', 'obsolete')" string="Earning Management">
+				<field name="default_code"/>
+				<field name="name"/>
+				<field name="categ_id" invisible="1"/>
+				<field name="variants" groups="product.group_product_variant"/>
+				<field name="uom_id" string="UoM"/>
+				<field name="type"/>
+				<field name="qty_available"/>
+				<field name="virtual_available"/>
+				<field name="lst_price"/>
+				<field name="price" invisible="not context.get('pricelist',False)"/>
+				<field name="standard_price" groups="base.group_extended"/>
+				<field name="earning_percentage" groups="base.group_extended"/>
+				<field name="earning_fixed" groups="base.group_extended"/>
+				<field name="state" groups="base.group_extended"/>
+				<field name="company_id" groups="base.group_multi_company" invisible="1"/>
+			</tree>
+		</field>
+	</record>
+	
+	<!--=========================================================
+							PRODUCT EARNING ACTION
+	==========================================================-->
+	<record id="action_product_product_earning_management" model="ir.actions.act_window">
+		<field name="name">Earning Management</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">product.product</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="product_product_tree_view_earning_management"/>
+	</record>
+
+	<!--=========================================================
+							PRODUCT EARNING MENU
+	==========================================================-->
+	<menuitem
+		id="menu_product_product_earning_management"
+		name="Earning Management"
+		string="Earning Management"
+		action="action_product_product_earning_management"
+		parent="stock.menu_stock_product"/>
+		
+	</data>
+</openerp>
