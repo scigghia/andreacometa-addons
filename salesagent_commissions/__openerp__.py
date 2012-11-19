@@ -26,7 +26,7 @@
         [ITA] Modulo per la gestione degli agenti di vendita
         [ENG] Module to manage salesagent
         """,
-    'author': 'Apruzzese Francesco',
+    'author': 'www.andreacometa.it',
     'website': 'http://www.andreacometa.it',
     'license': 'AGPL-3',
     "active": False,
