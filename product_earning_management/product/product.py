@@ -29,6 +29,7 @@ class product_product(osv.osv):
 	_name = "product.product"
 	_inherit = "product.product"
 
+	# ----- One earning function
 	def _earning(self, cr, uid, ids, name, arg, context=None):
 		res = {}
 		prds = self.browse(cr, uid, ids)
