@@ -29,12 +29,6 @@ class product_product(osv.osv):
 	_name = "product.product"
 	_inherit = "product.product"
 
-	def name_search(self, cr, user, name, args=None, operator='ilike', context=None, limit=100):
-		if name:
-			args = ['|', ('alternative_code', operator, '%' + name + '%')] + args
-		res = super(product_product,self).name_search(cr, user, name, args, operator='ilike', context=None, limit=100)
-		return res
-
 	def _earning(self, cr, uid, ids, name, arg, context=None):
 		res = {}
 		prds = self.browse(cr, uid, ids)
