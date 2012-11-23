@@ -16,6 +16,7 @@
                         <group colspan="1" col="2">
 							<field name="fairly"/>
 							<field name="days" attrs="{'readonly':[('fairly', '=', False)]}"/>
+							<field name="start_day" attrs="{'readonly':[('fairly', '=', False)]}"/>
 							<field name="days2" attrs="{'readonly':[('fairly', '=', False)]}"/>
 							<field name="maturities" attrs="{'readonly':[('fairly', '=', False)]}"/>
 						</group>
@@ -26,6 +27,27 @@
                 </field>
             </field>
         </record>
+   		<record model="ir.ui.view" id="view_payment_term_line_form_enhanced">
+			<field name="name">account.payment.term.line.form.enhanced</field>
+			<field name="model">account.payment.term.line</field>
+			<field name="inherit_id" ref="account.view_payment_term_line_form"/>
+			<field name="arch" type="xml">
+				<field name="days2" position="before">
+					<field name="start_day" colspan="4"/>
+				</field>
+			</field>
+   		</record>
+
+   		<record model="ir.ui.view" id="view_payment_term_line_tree_enhanced">
+			<field name="name">account.payment.term.line.tree.enhanced</field>
+			<field name="model">account.payment.term.line</field>
+			<field name="inherit_id" ref="account.view_payment_term_line_tree"/>
+			<field name="arch" type="xml">
+				<field name="days2" position="before">
+					<field name="start_day"/>
+				</field>
+			</field>
+   		</record>
 
     </data>
 </openerp>
