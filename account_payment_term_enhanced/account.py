@@ -62,31 +62,28 @@ class account_payment_term(osv.osv):
 		if pt.fairly:
 			single_amount = round(amount / pt.maturities, prec)
 			if pt.start_day < 0:
-				next_date = datetime.strptime(date_ref, '%Y-%m-%d') + relativedelta(day=1,months=1) + relativedelta(days=pt.start_day)
+				start_date = datetime.strptime(date_ref, '%Y-%m-%d') + relativedelta(day=1,months=1) + relativedelta(days=pt.start_day)
 			else:
-				next_date = datetime.strptime(date_ref, '%Y-%m-%d') + relativedelta(days=pt.start_day, months=1)
-			#next_date += relativedelta(days=pt.days) 
+				start_date = datetime.strptime(date_ref, '%Y-%m-%d') + relativedelta(days=pt.start_day, months=0)
+			print "data iniziale: %s\n" % start_date
 
-			#####next_date = datetime.strptime(date_ref, '%Y-%m-%d')
-			#print "### %i %i %i" % (pt.maturities, pt.days, pt.days2)
 			for i in range(0, pt.maturities):
-				#print next_date, pt.days2
-				#if i==0:
-				if pt.days2 < 0:
-					next_first_date = next_date + relativedelta(day=1,months=1) #Getting 1st of next month
-					next_date = next_first_date + relativedelta(days=pt.days2)
-				if pt.days2 > 0:
-					next_date += relativedelta(day=pt.days2, months=1)
-				#else:
-				#	next_date += relativedelta(days=pt.days)
+				if pt.maturities>1:
+					next_date = (start_date + relativedelta(days=pt.days * (i+1)))
+					if pt.days2 < 0:
+						next_first_date = next_date + relativedelta(day=1,months=1) #Getting 1st of next month
+						next_date = next_first_date + relativedelta(days=pt.days2)
+					if pt.days2 > 0: # numero giorno in cui farlo scadere
+						next_date += relativedelta(day=pt.days2, months=1)
+					print "data scadenza: %s\n" % next_date
+				else:
+					next_date = start_date
+
 				if i < pt.maturities-1:
-					#print "### STEP"
 					result.append( (next_date.strftime('%Y-%m-%d'), single_amount) )
 					amount -= single_amount
 				else: # last round
-					#print "### LAST"
 					result.append( (next_date.strftime('%Y-%m-%d'), amount) )
-				#print "### %i, %f, %f" % (i, single_amount, amount)
 		else:
 			for line in pt.line_ids:
 				if line.value == 'fixed':
