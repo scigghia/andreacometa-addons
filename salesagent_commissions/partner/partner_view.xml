@@ -48,6 +48,7 @@
 					<filter name="salesagent" string="Salesagent" icon="terp-personal" domain="[('salesagent','=',1)]" help="Salesagent Partners" />
 				</filter>
 				<field name="user_id" position="replace">
+					<field name="user_id" invisible="1"/>
 					<field name="salesagent_for_customer_id" />
 				</field>
 			</field>
