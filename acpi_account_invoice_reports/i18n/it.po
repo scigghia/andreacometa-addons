@@ -1,0 +1,214 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* acpi_account_invoice_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-11 19:30+0000\n"
+"PO-Revision-Date: 2012-12-11 19:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:90
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:90
+msgid "M.U."
+msgstr "U.M."
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:95
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:95
+msgid "TAX"
+msgstr "IVA"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:109
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:111
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:109
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:111
+msgid "NOTES"
+msgstr "NOTE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:33
+msgid "Destination"
+msgstr "Destinazione"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:78
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:78
+msgid "PAG. N."
+msgstr "PAG. N."
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:133
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:133
+msgid "TO PAY"
+msgstr "DA PAGARE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:93
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:93
+msgid "DISCOUNT"
+msgstr "SCONTO"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:182
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:182
+msgid "SIGNATURE VECTOR"
+msgstr "FIRMA VETTORE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:125
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:125
+msgid "AMOUNT TAX"
+msgstr "TOTALE IMPOSTE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:178
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:178
+msgid "DATE TRANP. START"
+msgstr "DATA INIZIO TRASPORTO"
+
+#. module: acpi_account_invoice_reports
+#: model:ir.actions.report.xml,name:acpi_account_invoice_reports.acpi_immediate_invoice
+msgid "Immediate"
+msgstr "Immediata"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:91
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:91
+msgid "QTY"
+msgstr "QTÀ"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:164
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:164
+msgid "PACKAGES NUMBER"
+msgstr "COLLI"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:121
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:121
+msgid "AMOUNT UNTAXED"
+msgstr "TOTALE IMPONIBILE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:168
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:168
+msgid "CARRIAGE CONDITION"
+msgstr "RESA MERCE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:94
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:129
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:94
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:129
+msgid "TOTAL"
+msgstr "TOTALE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:48
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:48
+msgid "DOCUMENT TYPE"
+msgstr "TIPO DOCUMENTO"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:154
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:154
+msgid "SIGNATURE DRIVER"
+msgstr "FIRMA CONDUCENTE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:139
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:139
+msgid "DUE"
+msgstr "SCADENZE"
+
+#. module: acpi_account_invoice_reports
+#: model:ir.actions.report.xml,name:acpi_account_invoice_reports.acpi_deferred_invoice
+msgid "Deferred"
+msgstr "Differita"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:74
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:74
+msgid "FISCAL CODE"
+msgstr "CODICE FISCALE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:56
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:56
+msgid "DOCUMENT DATE"
+msgstr "DATA DOCUMENTO"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:64
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:64
+msgid "TRANSPORT REASON"
+msgstr "CAUSALE TRASPORTO"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:172
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:172
+msgid "SIGNATURE RECIPIENT"
+msgstr "FIRMA DESTINATARIO"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:60
+msgid "VAT"
+msgstr "PARTITA IVA"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:15
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:15
+msgid "Bank Details"
+msgstr "Dettagli Banca"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:89
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:89
+msgid "DESCRIPTION"
+msgstr "DESCRIZIONE"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:160
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:160
+msgid "GOOD DESCRIPTION"
+msgstr "ASPETTO DEI BENI"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:92
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:92
+msgid "PRICE UNIT"
+msgstr "PREZZO UNITARIO"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:28
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:28
+msgid "Gentle"
+msgstr "Spett.le"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:60
+msgid "VAT NUMBER"
+msgstr "PARTITA IVA"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:70
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:70
+msgid "PAYMENT"
+msgstr "PAGAMENTO"
+
+#. module: acpi_account_invoice_reports
+#: report:addons/acpi_account_invoice_reports/report/deferred.mako:52
+#: report:addons/acpi_account_invoice_reports/report/immediate.mako:52
+msgid "DOCUMENT NUMBER"
+msgstr "NUMERO DOCUMENTO"
+
