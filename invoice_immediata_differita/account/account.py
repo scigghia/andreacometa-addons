@@ -22,7 +22,7 @@ class account_invoice(osv.osv):
 		if self.browse(cr, uid, ids, context)[0].immediate:
 			report_name = ir_values_obj.get_param(cr, uid, 'report_invoice_immediate', False)
 		else:
-			report_name = ir_values_obj.get_param(cr, uid, 'report_invoice_differate', False)
+			report_name = ir_values_obj.get_param(cr, uid, 'report_invoice_differita', False)
 		if not report_name:
 			raise osv.except_osv(_('Attenzione'), _('Impostare un report di stampa'))
 			return False

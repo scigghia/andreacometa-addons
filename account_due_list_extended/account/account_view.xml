@@ -30,6 +30,7 @@
 				</field>
 				<filter icon="terp-dolar_ok!" string="Unreconciled" domain="[('reconcile_id','=',False)]" help="Unreconciled payments" position="replace">
 					<filter name="unreconciled_filter" icon="terp-dolar_ok!" string="Unreconciled" domain="[('reconcile_id','=',False)]" help="Unreconciled payments"/>
+					<filter name="reconciled_filter" icon="terp-dolar" string="Reconciled" domain="[('reconcile_id','!=',False)]" help="Reconciled payments"/>
 				</filter>
 			</field>
 		</record>
