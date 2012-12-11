@@ -32,11 +32,14 @@
 {
     "name": "Just Another Account Invoice Reports",
     "description": """
-    Generic Report for account invoice
+    [ENG] Generic Report for account invoice to separate Immediate and Deferred Invoice
+    [ITA] Report Generici per ottenere stampe separate di fatture immediate e differite
     
     ==============================
-    ATTENTION: To obtain a better report, add a webkit logo record with name 'Logo'
-    and an image with width 300px
+    [ENG] ATTENTION: To obtain a better report, add a webkit logo record with name 'Logo'
+    and an image with max width 300px
+    [ITA] ATTENZIONE: Per ottenere una migliore resa dei report, creare una nuovo webkit logo
+    con nome 'Logo' ed inserire un'immagine con larghezza massima 300px
     """,
     "version": "0.1",
     "depends": ["report_webkit", "l10n_it", "l10n_it_fiscalcode"],
