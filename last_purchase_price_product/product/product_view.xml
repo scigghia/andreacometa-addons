@@ -11,7 +11,7 @@
                 <field name="standard_price" position="replace">
                     <label string="Cost Price:" align="1.0"/>
                     <group col="2" colspan="1">
-                        <field name="standard_price" attrs="{'readonly':[('cost_method','!=','standard')]}" nolabel="1"/>
+                        <field name="standard_price" attrs="{'readonly':[('cost_method','=','average')]}" nolabel="1"/>
                         <button name="%(stock.action_view_change_standard_price)d" string="Update"
                             type="action" icon="gtk-execute" attrs="{'invisible':[('cost_method','!=','average')]}"/>
                     </group>
@@ -26,7 +26,7 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <field name="standard_price" position="replace">
-                    <field name="standard_price" attrs="{'readonly':[('cost_method','!=','standard')]}"/>
+                    <field name="standard_price" attrs="{'readonly':[('cost_method','=','average')]}"/>
                 </field>
             </field>
        </record>

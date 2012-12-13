@@ -28,6 +28,7 @@ class partial_picking(osv.osv_memory):
 	def do_partial(self, cr, uid, ids, context=None):
 		if context is None:
 			context = {} 
+		res = super(partial_picking, self).do_partial(cr, uid, ids, context=context)
 		pick_obj = self.pool.get('stock.picking')
 		purchase_obj = self.pool.get('purchase.order')
 		picking_ids = context.get('active_ids', False)
@@ -40,11 +41,11 @@ class partial_picking(osv.osv_memory):
 					order = purchase_obj.browse(cr, uid, order_id)
 					for move in partial.move_ids:
 						if move.product_id.cost_method == 'lpp':
+							product_cost = 0.0
 							for line in order.order_line:
-								product_cost = 0.0
 								if line.product_id.id == move.product_id.id:
 									product_cost = line.price_unit
 							self.pool.get('product.product').write(cr, uid, [move.product_id.id], {'standard_price': product_cost})
-		return super(partial_picking, self).do_partial(cr, uid, ids, context=context)
+		return res
 
 partial_picking()
