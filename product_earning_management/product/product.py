@@ -34,7 +34,9 @@ class product_product(osv.osv):
 		res = {}
 		prds = self.browse(cr, uid, ids)
 		for prd in prds:
-			earn_percentage = (prd.list_price / prd.standard_price) - 1
+			earn_percentage = 0.00
+			if prd.list_price and prd.standard_price:
+				earn_percentage = (prd.list_price / prd.standard_price) - 1
 			earn_fixed = prd.list_price - prd.standard_price
 			res[prd.id] = {'earning_percentage': earn_percentage, 'earning_fixed': earn_fixed}
 		return res
