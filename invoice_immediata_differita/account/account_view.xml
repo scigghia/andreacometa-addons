@@ -17,5 +17,20 @@
 		</field>
 	</record>
 
+	<record id="view_account_invoice_filter_imm_diff" model="ir.ui.view">
+		<field name="name">account.invoice.select.imm_diff</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.view_account_invoice_filter"/>
+		<field name="arch" type="xml">
+			<filter name="unpaid" position="after" >
+				<separator orientation="vertical"/>
+				<filter name="Immediate" icon="terp-dolar" string="Immediate" domain="[('immediate','=',True)]" />
+				<filter name="Differite" icon="terp-dolar" string="Differite" domain="[('immediate','=',False)]" />
+		   </filter>
+		</field>
+	</record>
+
+
+
 	</data>
 </openerp>
