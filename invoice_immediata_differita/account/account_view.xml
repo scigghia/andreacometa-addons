@@ -14,6 +14,10 @@
 			<button name="%(account.account_invoices)d" position="replace">
 				<button name="print_imm_diff_invoice" string="Print Invoice" type="object" icon="gtk-print" states="open,paid,proforma,sale,proforma2"/>
 			</button>
+			<field name="name" position="after">
+				<field name="immediate" attrs="{'readonly':[('state','in',['open', 'paid'])]}"
+					groups="account.group_account_manager" />
+			</field>
 		</field>
 	</record>
 
