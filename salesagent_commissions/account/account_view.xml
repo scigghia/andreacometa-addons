@@ -71,6 +71,7 @@
 			<field name="arch" type="xml">
 				<tree string="Commissions" colors="darkorange:payment_commission_date != False" >
 					<field name="commission_presence" invisible="1"/>
+					<field name="reconciled" invisible="1"/>
 					<field name="salesagent_id" />
 					<field name="name" />
 					<field name="price_subtotal" />
@@ -94,6 +95,9 @@
 			<field name="type">search</field>
 			<field name="arch" type="xml">
 				<search string="Commissions">
+					<filter string="Invoice Not paid" icon="terp-dolar" domain="[('reconciled', '=', False)]"/>
+					<filter string="Invoice Paid" icon="terp-dolar_ok!" domain="['!', ('reconciled', '=', False)]"/>
+					<separator orientation="vertical"/>
 					<filter string="Not paid" icon="terp-dolar" domain="[('paid_commission', '=', 0)]"/>
 					<filter string="Paid" icon="terp-dolar_ok!" domain="['!', ('paid_commission', '=', 0)]"/>
 					<separator orientation="vertical"/>
@@ -102,6 +106,7 @@
 					<field name="salesagent_id" />
 					<field name="invoice_id" string="Invoice"/>
 					<field name="date_invoice"/>
+					<field name="payment_commission_date"/>
 				</search>
 			</field>
 		</record>
