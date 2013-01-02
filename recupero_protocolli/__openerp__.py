@@ -24,11 +24,12 @@
 {
 	'name': 'Modulo per la gestione del recupero dei buchi dei protocolli fiscali',
 	'version': '1.0',
-	'category': 'Custom',
+	'category': 'Sequences',
 	'description': 
 		"""
-		Modulo per la gestione del recupero dei buchi delle sequence (DDT, Fatture, etc.)
-		Basta ereditare l'unlink di una classe con sequence per ottenere la funzionalità di ripristino
+		[ENG] Is useful for sequences recovery eg from a deleted invoice. 
+		[ITA] Modulo per la gestione del recupero dei buchi delle sequence (DDT, Fatture, etc.)
+		È sufficente ereditare l'unlink di una classe con sequence per ottenere la funzionalità di ripristino
 		""",
 	'author': 'www.andreacometa.it',
 	'website': 'http://www.andreacometa.it',
