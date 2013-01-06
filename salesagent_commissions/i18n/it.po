@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-17 11:31+0000\n"
-"PO-Revision-Date: 2012-11-17 11:31+0000\n"
+"POT-Creation-Date: 2012-12-27 09:01+0000\n"
+"PO-Revision-Date: 2012-12-27 09:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,6 +34,11 @@ msgstr "Calcola"
 #: help:account.invoice.line,no_commission:0
 msgid "Indicates if the commission __ NOT__ must be calculated for this time!"
 msgstr "Indica se la provvigione __NON__ deve essere calcolata per questa volta!"
+
+#. module: salesagent_commissions
+#: view:account.invoice.line:0
+msgid "Invoice Not paid"
+msgstr "Fatture Non pagate"
 
 #. module: salesagent_commissions
 #: field:account.invoice.line,paid_commission_percentage_value:0
@@ -109,6 +114,11 @@ msgstr "Categoria Prodotto"
 #: model:ir.model,name:salesagent_commissions.model_wzd_pagamento_provvigioni
 msgid "wzd.pagamento_provvigioni"
 msgstr "wzd.pagamento_provvigioni"
+
+#. module: salesagent_commissions
+#: field:account.invoice.line,reconciled:0
+msgid "Reconciled"
+msgstr "Fattura Pagata"
 
 #. module: salesagent_commissions
 #: field:account.invoice.line,date_invoice:0
@@ -274,12 +284,12 @@ msgstr "Non Pagato"
 #: model:ir.actions.act_window,name:salesagent_commissions.act_wzd_payment_cancellation_view
 #: view:wzd.payment_cancellation:0
 msgid "Commission Payment Cancellation"
-msgstr "Annullamento Pagam,ento Provvigioni"
+msgstr "Annullamento Pagamento Provvigioni"
 
 #. module: salesagent_commissions
 #: sql_constraint:account.invoice:0
 msgid "Invoice Number must be unique per Company!"
-msgstr "Il numero di fattura deve essere univoco per azienda!"
+msgstr "Invoice Number must be unique per Company!"
 
 #. module: salesagent_commissions
 #: field:account.invoice,paid_date:0
@@ -308,12 +318,12 @@ msgstr "Provvigioni"
 #: view:wzd.percentage_calcolate:0
 #: field:wzd.percentage_calcolate,fix_commission:0
 msgid "Fix Salesagent Commission"
-msgstr "Guadagno Fisso Agente"
+msgstr "Provvigione Fissa"
 
 #. module: salesagent_commissions
 #: constraint:product.category:0
 msgid "Error ! You cannot create recursive categories."
-msgstr "Errore ! Non è possibile creare categorie ricorsive."
+msgstr "Error ! You cannot create recursive categories."
 
 #. module: salesagent_commissions
 #: model:ir.model,name:salesagent_commissions.model_account_invoice_line
@@ -370,6 +380,11 @@ msgstr "Agenti"
 #: field:account.invoice.line,payment_commission_note:0
 msgid "Payment Commission Note"
 msgstr "Note Pagamento Provvigione"
+
+#. module: salesagent_commissions
+#: view:account.invoice.line:0
+msgid "Invoice Paid"
+msgstr "Fatture Pagate"
 
 #. module: salesagent_commissions
 #: model:ir.ui.menu,name:salesagent_commissions.menu_invoice_provvigioni

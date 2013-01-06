@@ -81,6 +81,7 @@ class account_invoice_line(osv.osv):
 		return res
 
 	_columns = {
+		'reconciled' : fields.related('invoice_id', 'reconciled', type='boolean',string='Reconciled'),
 		'no_commission' : fields.boolean('No Commission', help='Indicates if the commission __ NOT__ must be calculated for this time!'),
 		'commission_presence' : fields.boolean('Commission Presence'),
 		'commission_percentage' : fields.function(_commission, method=True, string='Comm. Percentage', type='float', store=False, multi='comm'),
