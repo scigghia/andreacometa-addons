@@ -30,13 +30,14 @@
 		<% tot_importo = 0 %>
 		<% tot_dare = 0 %>
 		<% tot_avere = 0 %>
-		%for line in objects:    
+		%for line in objects:
+		%if line:    
 			<tr>
-				<td class="w10"><p style="text-align:left;">${line and line.invoice.journal_id.code or line.name ''}</p></td>
-				<td class="w25"><p style="text-align:left;">${line and line.move_id.partner_id.name or ''}</p></td>
-				<td class="w10"><p style="text-align:left;">${line and line.date_maturity or line.date}</p></td>
-				<td class="w10"><p style="text-align:left;">${line and line.invoice.number or ''}</p></td>
-				<td class="w15"><p style="text-align:left;">${line and line.invoice.payment_term.name or ''}</p></td>
+				<td class="w10"><p style="text-align:left;">${line.invoice.journal_id.code or ''}</p></td>
+				<td class="w25"><p style="text-align:left;">${line.move_id.partner_id.name or ''}</p></td>
+				<td class="w10"><p style="text-align:left;">${line.date_maturity or line.date}</p></td>
+				<td class="w10"><p style="text-align:left;">${line.invoice.number or ''}</p></td>
+				<td class="w15"><p style="text-align:left;">${line.invoice.payment_term.name or ''}</p></td>
 				<td class="w10"><p style="text-align:right;">${formatLang(line.amount_residual or 0.00, digits=get_digits(dp='Account'))}</p></td>
 				<td class="w10"><p style="text-align:right;">${formatLang(line.debit or 0.00, digits=get_digits(dp='Account'))}</p></td>
 				<td class="w10"><p style="text-align:right;">${formatLang(line.credit or 0.00, digits=get_digits(dp='Account'))}</p></td>
@@ -48,6 +49,7 @@
 			%endif
 			<% tot_dare += line.debit %>
 			<% tot_avere += line.credit %>
+		%endif
         %endfor
         <tr><td colspan=8><hr style="width:100%"></td></tr>
 		<tr style="height:100%">
