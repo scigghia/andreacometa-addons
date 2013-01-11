@@ -15,7 +15,7 @@
 					<field name="salesagent" />
 				</field>
 				<field name="parent_id" position="after">
-					<field name="salesagent_for_customer_id" domain="[('salesagent', '=', 1)]" />
+					<field name="salesagent_for_customer_id" domain="[('salesagent', '=', True)]" />
 				</field>
 				<page string="Notes" position="after">
 					<page string="Salesagent Details" attrs="{'invisible': [('salesagent', '=', 0)]}">
@@ -45,7 +45,7 @@
 			<field name="inherit_id" ref="base.view_res_partner_filter"/>
 			<field name="arch" type="xml">
 				<filter string="Suppliers" position="after">
-					<filter name="salesagent" string="Salesagent" icon="terp-personal" domain="[('salesagent','=',1)]" help="Salesagent Partners" />
+					<filter name="salesagent" string="Salesagent" icon="terp-personal" domain="[('salesagent','=',True)]" help="Salesagent Partners" />
 				</filter>
 				<field name="user_id" position="replace">
 					<field name="user_id" invisible="1"/>
