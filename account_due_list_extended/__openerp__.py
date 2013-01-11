@@ -35,6 +35,8 @@
         'account/account_view.xml',
         'reports/reports.xml',
         'payment_type_data.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         ],
     "demo_xml" : [],
     "active": False,
