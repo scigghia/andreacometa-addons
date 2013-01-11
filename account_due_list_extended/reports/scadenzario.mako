@@ -32,7 +32,7 @@
 		<% tot_avere = 0 %>
 		%for line in objects:    
 			<tr>
-				<td class="w10"><p style="text-align:left;">${line.invoice.journal_id.code or ''}</p></td>
+				<td class="w10"><p style="text-align:left;">${line.invoice and line.invoice.journal_id.code or line.name ''}</p></td>
 				<td class="w25"><p style="text-align:left;">${line.move_id.partner_id.name or ''}</p></td>
 				<td class="w10"><p style="text-align:left;">${line.date_maturity or line.date}</p></td>
 				<td class="w10"><p style="text-align:left;">${line.invoice.number or ''}</p></td>
