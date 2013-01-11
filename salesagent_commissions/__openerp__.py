@@ -41,5 +41,7 @@
         'product/product_view.xml',
         'account/account_view.xml',
         'wizard/wizard_view.xml',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         ],
 }
