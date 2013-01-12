@@ -16,7 +16,7 @@
 			<td class="w10"><p class="centered">Scadenza</p></td>
 			<td class="w10"><p class="centered">Fattura</p></td>
 			<td class="w15"><p class="centered">Pagamento</p></td>
-			<td class="w10"><p class="centered">Importo</p></td>
+			<td class="w10"><p class="centered">Residuo</p></td>
 			<td class="w10"><p class="centered">Dare</p></td>
 			<td class="w10"><p class="centered">Avere</p></td>
 		</tr>
