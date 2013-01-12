@@ -22,7 +22,7 @@
     'version': '0.1',
     'category': 'Tools',
     'complexity': "easy",
-    'description': 'Wizard to change category tio a lot of product with one click',
+    'description': 'Wizard to change category to a lot of product with one click',
     'author': 'www.andreacometa.it',
     'website': 'http://www.andreacometa.com',
     'depends': ['product'],

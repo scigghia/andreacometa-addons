@@ -17,20 +17,21 @@
 #       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #       MA 02110-1301, USA.
 
-from osv import fields,osv
-from tools.translate import _
-
-class wzd_massive_category_change(osv.osv_memory):
-
-	_name = "wzd.massive_category_change"
-
-	_columns = {
-		'name' : fields.many2one('product.category', 'Category'),
-		}
-
-	def change(self, cr, uid, ids, context={}):
-		wzd = self.browse(cr, uid, ids[0], context)
-		self.pool.get('product.product').write(cr, uid, context['active_ids'], {'categ_id':wzd.name.id})
-		return {'type': 'ir.actions.act_window_close'}
-
-wzd_massive_category_change()
+{
+    'name': 'Massive Product UOM Change',
+    'version': '0.1',
+    'category': 'Tools',
+    'complexity': "easy",
+    'description': 'Wizard to change product uom to a lot of product with one click',
+    'author': 'www.andreacometa.it',
+    'website': 'http://www.andreacometa.com',
+    'depends': ['product'],
+    'init_xml': [],
+    'update_xml': [
+        'wizard/wizard_view.xml'
+    ],
+    'demo_xml': [],
+    'test':[],
+    'installable': True,
+    'images': [],
+}

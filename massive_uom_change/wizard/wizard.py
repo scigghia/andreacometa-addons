@@ -20,17 +20,23 @@
 from osv import fields,osv
 from tools.translate import _
 
-class wzd_massive_category_change(osv.osv_memory):
+class wzd_massive_uom_change(osv.osv_memory):
 
-	_name = "wzd.massive_category_change"
+	_name = "wzd.massive_uom_change"
 
 	_columns = {
-		'name' : fields.many2one('product.category', 'Category'),
+		'name' : fields.many2one('product.uom', 'UOM'),
 		}
 
 	def change(self, cr, uid, ids, context={}):
 		wzd = self.browse(cr, uid, ids[0], context)
-		self.pool.get('product.product').write(cr, uid, context['active_ids'], {'categ_id':wzd.name.id})
+		product_obj = self.pool.get('product.product')
+		products = product_obj.browse(cr, uid, context['active_ids'])
+		for product in products:
+			if product.uom_id and product.uom_id.category_id and product.uom_id.category_id.id != wzd.name.category_id.id:
+				raise osv.except_osv(_('Error'), _('The categories of uom selected and uom of product must be the egual!'))
+				return {'type': 'ir.actions.act_window_close'}
+		product_obj.write(cr, uid, context['active_ids'], {'uom_id':wzd.name.id})
 		return {'type': 'ir.actions.act_window_close'}
 
-wzd_massive_category_change()
+wzd_massive_uom_change()
