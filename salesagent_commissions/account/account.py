@@ -39,9 +39,15 @@ class account_invoice(osv.osv):
 	def _total_commission(self, cr, uid, ids, name, arg, context=None):
 		res = {}
 		for invoice in self.browse(cr, uid, ids, context=context):
+			if invoice.type == 'out_invoice':
+				sign = 1
+			elif invoice.type == 'out_refund':
+				sign = -1
+			else:
+				sign = 0
 			total_commission = 0.0 
 			for line in invoice.invoice_line:
-				total_commission += line.commission
+				total_commission += (line.commission * sign)
 			res[invoice.id] = total_commission
 		return res
 
@@ -72,6 +78,12 @@ class account_invoice_line(osv.osv):
 		res = {}
 		salesagent_common_obj = self.pool.get('salesagent.common')
 		for line in self.browse(cr, uid, ids, context=context):
+			if line.invoice_id.type == 'out_invoice':
+				sign = 1
+			elif line.invoice_id.type == 'out_refund':
+				sign = -1
+			else:
+				sign = 0
 			res[line.id] = {'commission':0.0, 'commission_percentage':0.0}
 			if not line.no_commission:
 				# ----- if a paid commission exist, show it or calculate it
@@ -79,11 +91,11 @@ class account_invoice_line(osv.osv):
 					comm = line.paid_commission_value
 					comm_percentage = line.paid_commission_percentage_value
 				else:
-					comm = salesagent_common_obj.commission_calculate(cr, uid, 'account.invoice.line', line.id)
+					comm = sign * salesagent_common_obj.commission_calculate(cr, uid, 'account.invoice.line', line.id)
 					comm_percentage = salesagent_common_obj.recognized_commission(cr, uid, line.partner_id and line.partner_id.id or False, line.salesagent_id and line.salesagent_id.id or False, line.product_id and line.product_id.id or False)
 				res[line.id]['commission'] = comm
 				res[line.id]['commission_percentage'] = comm_percentage
-				if comm > 0:
+				if comm != 0:
 					self.write(cr, uid, [line.id, ], {'commission_presence':True})
 				else:
 					self.write(cr, uid, [line.id, ], {'commission_presence':False})
