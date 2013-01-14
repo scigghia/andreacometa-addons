@@ -36,12 +36,12 @@
     "installable": True,
     "depends" : ['base', 'product', 'account'],
     "update_xml" : [
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'salesagent_view.xml',
         'partner/partner_view.xml',
         'product/product_view.xml',
         'account/account_view.xml',
         'wizard/wizard_view.xml',
-        'security/security.xml',
-        'security/ir.model.access.csv',
         ],
 }
