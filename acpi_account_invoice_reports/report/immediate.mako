@@ -125,14 +125,14 @@
                     <p class="font_12"><b>${_("AMOUNT TAX")}</b></p>
                     <p class="data font_12">${formatLang(inv.amount_tax or 0.00, digits=2)} ${inv.currency_id and inv.currency_id.symbol}</p>
                 </td>
-                <td>
+                <td colspan="2">
                     <p class="font_12"><b>${_("TOTAL")}</b></p>
                     <p class="data font_12">${formatLang(inv.amount_total or 0.00, digits=2)} ${inv.currency_id and inv.currency_id.symbol}</p>
                 </td>
-                <td>
+                <!--td>
                     <p class="font_12"><b>${_("TO PAY")}</b></p>
                     <p class="data font_12">${formatLang(inv.residual or 0.00, digits=2)} ${inv.currency_id and inv.currency_id.symbol}</p>
-                </td>
+                </td-->
             </tr>
             <tr>
                 <td colspan="3">
@@ -150,7 +150,7 @@
                         </table>
                     %endif
                 </td>
-                <td colspan="3">
+                <td>
                     <p>${_("SIGNATURE DRIVER")}</p>
                     <p class="data">&nbsp;</p>
                 </td>
@@ -168,13 +168,13 @@
                     <p>${_("CARRIAGE CONDITION")}</p>
                     <p class="data">${inv.carriage_condition_id and inv.carriage_condition_id.name or '&nbsp;'}</p>
                 </td>
-                <td colspan="2">
+                <td >
                     <p>${_("SIGNATURE RECIPIENT")}</p>
                     <p class="data">&nbsp;</p>
                 </td>
             </tr>
             <tr>
-                <td colspan="3">
+                <td>
                     <p>${_("DATE TRANP. START")}</p>
                     <p class="data">${datetime.today().strftime('%d/%m/%Y %H:%M')}</p>
                 </td>
