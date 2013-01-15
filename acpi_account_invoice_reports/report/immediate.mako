@@ -225,7 +225,7 @@
                     <td class="amount w5"><p class="centered">${line.quantity or ''}</p></td>
                     <td class="amount w10"><p class="centered">${formatLang(line.price_unit or 0.00, digits=get_digits(dp='Account'))} ${inv.currency_id and inv.currency_id.symbol}</p></td>
                     <td class="amount w10"><p class="centered">${formatLang(line.discount or 0.00, digits=2)}</p></td>
-                    <td class="amount w10"><p class="centered">${formatLang(line.price_unit * line.quantity, digits=get_digits(dp='Account'))} ${inv.currency_id and inv.currency_id.symbol}</p></td>
+                    <td class="amount w10"><p class="centered">${formatLang(line.price_subtotal, digits=get_digits(dp='Account'))} ${inv.currency_id and inv.currency_id.symbol}</p></td>
                     <td class="amount w10"><p class="centered">${line.invoice_line_tax_id and line.invoice_line_tax_id[0].description or ''}</p></td>
                 </tr>
             %endfor
