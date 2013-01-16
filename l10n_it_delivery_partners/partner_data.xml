@@ -98,5 +98,96 @@
             <field name="type">default</field>
         </record>
 
+		
+		<!-- Artoni -->
+        <record id="partner_delivery_artoni" model="res.partner">
+            <field name="name">Artoni Trasporti S.p.A.</field>
+            <field name="website">http://www.artoni.com/</field>
+            <field name="vat">IT02248020352</field>
+        </record>
+        
+        <record id="partner_address_delivery_artoni" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_artoni"/>
+            <field name="name">Artoni</field>
+            <field name="type">default</field>
+            <field name="city">Reggio Emilia</field>
+            <field name="zip">42124</field>
+            <field name="street">Via Romania, 22</field>
+            <field name="phone">0522369111</field>
+            <field name="fax">0522369130</field>
+        </record>
+		
+				<!-- Air Express -->
+        <record id="partner_delivery_air_express" model="res.partner">
+            <field name="name">Air Express S.r.l.</field>
+            <field name="website">http://www.airexpress.it/</field>
+            <field name="vat">IT08388700158</field>
+        </record>
+        
+        <record id="partner_address_delivery_air_express" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_air_express"/>
+            <field name="name">Air Express</field>
+            <field name="type">default</field>
+            <field name="city">Pobbiano di Rodano</field>
+            <field name="zip">20090</field>
+            <field name="street">Via Milano, 9</field>
+            <field name="phone">02926851</field>
+            <field name="fax">02926852500</field>
+        </record>
+		
+				<!-- Arco Spedizioni -->
+        <record id="partner_delivery_arco" model="res.partner">
+            <field name="name">ARCO SPEDIZIONI S.p.A</field>
+            <field name="website">http://www.arco.it/</field>
+            <field name="vat">IT08975100150</field>
+        </record>
+        
+        <record id="partner_address_delivery_arco" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_arco"/>
+            <field name="name">Artoni Spedizioni</field>
+            <field name="type">default</field>
+            <field name="city">Monza</field>
+            <field name="zip">20900</field>
+            <field name="street">Via Buonarroti, 203</field>
+            <field name="phone">03920671</field>
+            <field name="fax">0392067201</field>
+        </record>
+		
+				<!-- TWS -->
+        <record id="partner_delivery_tws" model="res.partner">
+            <field name="name">T.W.S. Express Courier s.r.l.</field>
+            <field name="website">http://www.twsexpresscourier.it/</field>
+            <field name="vat">IT00892690967</field>
+        </record>
+        
+        <record id="partner_address_delivery_tws" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_tws"/>
+            <field name="name">TWS</field>
+            <field name="type">default</field>
+            <field name="city">Monza</field>
+            <field name="zip">20900</field>
+            <field name="street">via Montello, 7</field>
+            <field name="phone">03920991</field>
+            <field name="fax">0392099222</field>
+        </record>
+		
+				<!-- MTN -->
+        <record id="partner_delivery_mtn" model="res.partner">
+            <field name="name">M.T.N. SPA</field>
+            <field name="website">http://www.mtnspa.com/</field>
+            <field name="vat">IT02217690367</field>
+        </record>
+        
+        <record id="partner_address_delivery_mtn" model="res.partner.address">
+            <field name="partner_id" ref="partner_delivery_mtn"/>
+            <field name="name">MTN</field>
+            <field name="type">default</field>
+            <field name="city">Milano</field>
+            <field name="zip">20129</field>
+            <field name="street">Corso Concordia, 5</field>
+            <field name="phone">0383800800</field>
+            <field name="fax">0383800883</field>
+        </record>
+		
     </data>
 </openerp>
