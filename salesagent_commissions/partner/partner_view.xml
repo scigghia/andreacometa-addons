@@ -12,19 +12,21 @@
 			<field name="inherit_id" ref="base.view_partner_form"/>
 			<field name="arch" type="xml">
 				<field name="supplier" position="after">
-					<field name="salesagent" />
+					<field name="salesagent" groups="salesagent_commissions.group_salesagent_user"/>
 				</field>
 				<field name="parent_id" position="after">
-					<field name="salesagent_for_customer_id" domain="[('salesagent', '=', True)]" />
+					<field name="salesagent_for_customer_id" domain="[('salesagent', '=', True)]" 
+						groups="salesagent_commissions.group_salesagent_user"/>
 				</field>
 				<page string="Notes" position="after">
-					<page string="Salesagent Details" attrs="{'invisible': [('salesagent', '=', 0)]}">
+					<page string="Salesagent Details" attrs="{'invisible': [('salesagent', '=', 0)]}"
+						groups="salesagent_commissions.group_salesagent_user">
 						<separator string="Commissions" colspan="4" />
 						<field name="commission" colspan="4" nolabel="1"/>
 						<separator string="Customers" colspan="4"/>
 						<field name="customer_for_salesagent_ids" colspan="4" nolabel="1"/>
 					</page>
-					<page string="Commissions for product">
+					<page string="Commissions for product" groups="salesagent_commissions.group_salesagent_user">
 						<field name="product_provvigioni_ids" colspan="4" nolabel="1">
 							<tree string="Details" editable="top">
 								<field name="name"/>
@@ -45,11 +47,14 @@
 			<field name="inherit_id" ref="base.view_res_partner_filter"/>
 			<field name="arch" type="xml">
 				<filter string="Suppliers" position="after">
-					<filter name="salesagent" string="Salesagent" icon="terp-personal" domain="[('salesagent','=',True)]" help="Salesagent Partners" />
+					<filter name="salesagent" string="Salesagent"
+						icon="terp-personal" domain="[('salesagent','=',True)]"
+						groups="salesagent_commissions.group_salesagent_user"
+						help="Salesagent Partners" />
 				</filter>
 				<field name="user_id" position="replace">
 					<field name="user_id" invisible="1"/>
-					<field name="salesagent_for_customer_id" />
+					<field name="salesagent_for_customer_id" groups="salesagent_commissions.group_salesagent_user"/>
 				</field>
 			</field>
 		</record>
