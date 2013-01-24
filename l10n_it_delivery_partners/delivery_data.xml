@@ -44,6 +44,36 @@
             <field name="partner_id" ref="partner_delivery_dhl" />
             <field name="product_id" ref="product_delivery_default" />
         </record>
-        
+		
+        <record id="delivery_partner_artoni" model="delivery.carrier">
+            <field name="name">ARTONI</field>
+            <field name="partner_id" ref="partner_delivery_artoni" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+		
+		<record id="delivery_partner_air_express" model="delivery.carrier">
+            <field name="name">ARTONI</field>
+            <field name="partner_id" ref="partner_delivery_air_express" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+		
+		<record id="delivery_partner_arco" model="delivery.carrier">
+            <field name="name">ARTONI</field>
+            <field name="partner_id" ref="partner_delivery_arco" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+		
+		<record id="delivery_partner_tws" model="delivery.carrier">
+            <field name="name">TWS</field>
+            <field name="partner_id" ref="partner_delivery_tws" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+		
+		<record id="delivery_partner_mtn" model="delivery.carrier">
+            <field name="name">MTN</field>
+            <field name="partner_id" ref="partner_delivery_mtn" />
+            <field name="product_id" ref="product_delivery_default" />
+        </record>
+		
     </data>
 </openerp>
