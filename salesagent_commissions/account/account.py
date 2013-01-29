@@ -127,3 +127,14 @@ class account_invoice_line(osv.osv):
 		}
 
 account_invoice_line()
+
+
+class account_move_line(osv.osv):
+
+	_inherit = "account.move.line"
+
+	_columns = {
+		'salesagent_id' : fields.related('invoice', 'salesagent_id', type='many2one', relation='res.partner', string='Salesagent', store=True, readonly=True),
+		}
+
+account_move_line()
