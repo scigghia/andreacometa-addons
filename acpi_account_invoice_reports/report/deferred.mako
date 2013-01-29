@@ -176,7 +176,7 @@
             <tr>
                 <td colspan="3">
                     <p>${_("DATE TRANP. START")}</p>
-                    <p class="data">${datetime.today().strftime('%d/%m/%Y %H:%M')}</p>
+                    <p class="data">&nbsp;</p>
                 </td>
                 <td colspan="3">
                     <p>${_("SIGNATURE VECTOR")}</p>
