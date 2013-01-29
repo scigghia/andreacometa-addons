@@ -176,7 +176,7 @@
             <tr>
                 <td>
                     <p>${_("DATE TRANP. START")}</p>
-                    <p class="data">&nbps;</p>
+                    <p class="data">&nbsp;</p>
                 </td>
                 <td colspan="3">
                     <p>${_("SIGNATURE VECTOR")}</p>
