@@ -1,0 +1,79 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_payment_term_enhanced
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-23 10:38+0000\n"
+"PO-Revision-Date: 2012-11-23 10:38+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_payment_term_enhanced
+#: constraint:account.payment.term.line:0
+msgid "Percentages for Payment Term Line must be between 0 and 1, Example: 0.02 for 2% "
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,start_day:0
+#: field:account.payment.term.line,start_day:0
+msgid "Start Day"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: help:account.payment.term,start_day:0
+#: help:account.payment.term.line,start_day:0
+msgid "Start Day of the month, set -1 for the last day of the current month. If it's positive, it gives the day of the next month. Set 0 for net days (otherwise it's based on the beginning of the month)."
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,days2:0
+msgid "Day of the Month"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: model:ir.model,name:account_payment_term_enhanced.model_account_payment_term
+msgid "Payment Term"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,days:0
+msgid "Number of Days"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: model:ir.model,name:account_payment_term_enhanced.model_account_payment_term_line
+msgid "Payment Term Line"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,fairly:0
+msgid "Distribute fairly"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: field:account.payment.term,maturities:0
+msgid "Number of maturities"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: help:account.payment.term,maturities:0
+msgid "Number of maturities to divide the total amount"
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: help:account.payment.term,days2:0
+msgid "Day of the month, set -1 for the last day of the current month. If it's positive, it gives the day of the next month. Set 0 for net days (otherwise it's based on the beginning of the month)."
+msgstr ""
+
+#. module: account_payment_term_enhanced
+#: help:account.payment.term,days:0
+msgid "Number of days between every maturity from the day of month.If Date=15/01, Number of Days=22, Day of Month=-1, then the due date is 28/02."
+msgstr ""
+
