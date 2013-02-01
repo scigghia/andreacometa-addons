@@ -18,72 +18,72 @@ msgstr ""
 #. module: account_payment_term_enhanced
 #: constraint:account.payment.term.line:0
 msgid "Percentages for Payment Term Line must be between 0 and 1, Example: 0.02 for 2% "
-msgstr "La percentuale per il pagamento parziale deve essere un numero fra 0 ed 1, ad esempio: 0.02 per il 2% "
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: field:account.payment.term,start_day:0
 #: field:account.payment.term.line,start_day:0
 msgid "Start Day"
-msgstr "Giorno iniziale"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: help:account.payment.term,start_day:0
 #: help:account.payment.term.line,start_day:0
 msgid "Start Day of the month, set -1 for the last day of the current month. If it's positive, it gives the day of the next month. Set 0 for net days (otherwise it's based on the beginning of the month)."
-msgstr "Giorno iniziale per il calcolo delle scadenze. Impostare -1 per fine mese da data fattura. Se positivo, fornisce il numero di giorni dalla data fattura. "
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: field:account.payment.term,days2:0
 msgid "Day of the Month"
-msgstr "Giorno del mese"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: field:account.payment.term,monthly:0
 msgid "Calculate by month"
-msgstr "Calcolo mensile"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: model:ir.model,name:account_payment_term_enhanced.model_account_payment_term
 msgid "Payment Term"
-msgstr "Termine di pagamento"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: field:account.payment.term,days:0
 msgid "Number of Days"
-msgstr "Numero di Giorni"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: model:ir.model,name:account_payment_term_enhanced.model_account_payment_term_line
 msgid "Payment Term Line"
-msgstr "Riga termine di pagamento"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: field:account.payment.term,fairly:0
 msgid "Distribute fairly"
-msgstr "Dividi equamente"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: field:account.payment.term,maturities:0
 msgid "Number of maturities"
-msgstr "Numero di scadenze"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: help:account.payment.term,maturities:0
 msgid "Number of maturities to divide the total amount"
-msgstr "Numero di scadenze su cui dividere l'importo totale"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: help:account.payment.term,days2:0
 msgid "Day of the month, set -1 for the last day of the current month. If it's positive, it gives the day of the next month. Set 0 for net days (otherwise it's based on the beginning of the month)."
-msgstr "Giorno del mese, impostare a -1 per l'ultimo giorno del mese corrente. Se positivo, fornisce il giorno del prossimo mese. Impostare a 0 per i giorni precisi (altrimenti basato sull'inizio del mese)."
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: help:account.payment.term,monthly:0
 msgid "if checked, calculates one maturity for every month"
-msgstr "Se spuntato, calcola una scadenza per ogni mese"
+msgstr ""
 
 #. module: account_payment_term_enhanced
 #: help:account.payment.term,days:0
 msgid "Number of days between every maturity from the day of month.If Date=15/01, Number of Days=22, Day of Month=-1, then the due date is 28/02."
-msgstr "Numero di giorni tra ogni scadenza a partire dal giorno del mese indicato. Se la data=15/01, Numero di giorni=22, Giorno del mese=-1, allora la data di scadenza è il 28/02."
+msgstr ""
 

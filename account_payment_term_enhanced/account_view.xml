@@ -15,7 +15,8 @@
 						<separator orientation="vertical" rowspan="4"/>
                         <group colspan="1" col="2">
 							<field name="fairly"/>
-							<field name="days" attrs="{'readonly':[('fairly', '=', False)]}"/>
+							<field name="monthly" attrs="{'readonly':[('fairly', '=', False)]}"/>
+							<field name="days" attrs="{'readonly':['|', ('fairly', '=', False), ('monthly', '=', True)]}"/>
 							<field name="start_day" attrs="{'readonly':[('fairly', '=', False)]}"/>
 							<field name="days2" attrs="{'readonly':[('fairly', '=', False)]}"/>
 							<field name="maturities" attrs="{'readonly':[('fairly', '=', False)]}"/>
