@@ -30,11 +30,11 @@ class account_invoice(osv.osv):
 	_inherit = "account.invoice"
 
 	def create(self, cr, uid, vals, context=None):
-		invoice_id = super(account_invoice, self).create(cr, uid, vals, context)
-		# QUI DOVRA RICHIAMARE L?AGENTE PARTENDO DAL CLIENTE
-		#partner = self.pool.get('res.partner').read(cr, uid, partner_id, ['salesagent_for_customer_id'])
-		#agente_id = partner['salesagent_for_customer_id']
-		return invoice_id
+		# QUI DOVRA RICHIAMARE L'AGENTE PARTENDO DAL CLIENTE
+		partner = self.pool.get('res.partner').browse(cr, uid, vals['partner_id'], context)
+		if partner.salesagent_for_customer_id:
+			vals.update({'salesagent_id':partner.salesagent_for_customer_id.id})
+		return super(account_invoice, self).create(cr, uid, vals, context)
 
 	def _total_commission(self, cr, uid, ids, name, arg, context=None):
 		res = {}
