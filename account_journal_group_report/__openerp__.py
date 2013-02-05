@@ -21,4 +21,24 @@
 #
 ##############################################################################
 
-import account
+{
+    'name': "Account Journal Group Report",
+    'version': '0.1',
+    'category': 'Account',
+    'description': """ENG: Provides a report of the journals belonging to a defined group\nITA: Fornisce un report di stampa dei sezionali appartenenti ad un gruppo definito""",
+    'author': 'www.andreacometa.it',
+    'website': 'http://www.andreacometa.it',
+    'license': 'AGPL-3',
+    "depends" : ['account', 'report_webkit'],
+    "init_xml" : [],
+    "update_xml" : [
+        'account/account_view.xml',
+        'reports/reports.xml',
+        #'security/security.xml',
+        'security/ir.model.access.csv',
+        ],
+    "demo_xml" : [],
+    "active": False,
+    "installable": True,
+    "images": ['images/image.png'],
+}
