@@ -36,5 +36,6 @@
     ],
     "demo_xml" : [],
     "active": False,
-    "installable": True
+    "installable": True,
+    "images": ['images/image.png'],
 }
