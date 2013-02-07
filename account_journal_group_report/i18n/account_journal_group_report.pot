@@ -1,0 +1,133 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_journal_group_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-06 11:56+0000\n"
+"PO-Revision-Date: 2013-02-06 11:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_journal_group_report
+#: constraint:account.move:0
+msgid "You can not create more than one move per period on centralized journal"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:62
+msgid "TOTAL:"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:61
+msgid "DEBIT:"
+msgstr ""
+
+#. module: account_journal_group_report
+#: help:account.journal,group:0
+#: help:account.move,group:0
+msgid "Journal Group for printing"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:60
+msgid "CREDIT:"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:20
+msgid "DEBIT"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:14
+msgid "DATE"
+msgstr ""
+
+#. module: account_journal_group_report
+#: model:ir.actions.report.xml,name:account_journal_group_report.account_journal_group_report
+msgid "Account Journal Report by Group"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:16
+msgid "REF"
+msgstr ""
+
+#. module: account_journal_group_report
+#: model:ir.model,name:account_journal_group_report.model_account_journal
+msgid "Journal"
+msgstr ""
+
+#. module: account_journal_group_report
+#: sql_constraint:account.journal:0
+msgid "The code of the journal must be unique per company !"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:15
+msgid "DOCUMENT"
+msgstr ""
+
+#. module: account_journal_group_report
+#: field:account.journal.group,name:0
+msgid "Name"
+msgstr ""
+
+#. module: account_journal_group_report
+#: constraint:account.journal:0
+msgid "Configuration error! The currency chosen should be shared by the default accounts too."
+msgstr ""
+
+#. module: account_journal_group_report
+#: model:ir.model,name:account_journal_group_report.model_account_move
+msgid "Account Entry"
+msgstr ""
+
+#. module: account_journal_group_report
+#: field:account.journal,group:0
+#: view:account.journal.group:0
+#: field:account.move,group:0
+#: model:ir.actions.act_window,name:account_journal_group_report.action_account_journal_group
+#: model:ir.model,name:account_journal_group_report.model_account_journal_group
+#: model:ir.ui.menu,name:account_journal_group_report.menu_account_journal_group
+msgid "Account Journal Group"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:18
+msgid "JOURNAL"
+msgstr ""
+
+#. module: account_journal_group_report
+#: sql_constraint:account.journal:0
+msgid "The name of the journal must be unique per company !"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:19
+msgid "CREDIT"
+msgstr ""
+
+#. module: account_journal_group_report
+#: field:account.journal.group,journals_ids:0
+msgid "Account Journals"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:17
+msgid "PARTNER"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:10
+msgid "ACCOUNT JOURNAL REPORT by GROUP"
+msgstr ""
+

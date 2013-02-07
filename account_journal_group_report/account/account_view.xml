@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+	<data>
+		
+		<!-- ====================================================== -->
+		<!-- 				ACCOUNT.JOURNAL.GROUP FORM				-->
+		<!-- ====================================================== -->
+		<record id="account_journal_group_form" model="ir.ui.view">
+			<field name="name">account.journal.group.form</field>
+			<field name="model">account.journal.group</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Account Journal Group">
+					<field name="name" colspan="4"/>
+					<field name="journals_ids" colspan="4"/>
+				</form>
+			</field>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 				ACCOUNT.JOURNAL.GROUP TREE				-->
+		<!-- ====================================================== -->
+		<record id="account_journal_group_tree" model="ir.ui.view">
+			<field name="name">account.journal.group.tree</field>
+			<field name="model">account.journal.group</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Account Journal Group">
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+
+		<!--========================================================-->
+		<!--				ACCOUNT.MOVE - SEARCH				-->
+		<!--========================================================-->
+		<record id="view_account_move_filter_group" model="ir.ui.view">
+			<field name="name">account.move.filter.group</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_account_move_filter"/>
+			<field name="arch" type="xml">
+				<field name="period_id" position="after">
+					<field name="group" widget="selection"/>
+				</field>
+			</field>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 				ACCOUNT.JOURNAL FORM					-->
+		<!-- ====================================================== -->
+		<record id="view_account_journal_view_form_groups" model="ir.ui.view">
+			<field name="name">account.journal.form.group</field>
+			<field name="model">account.journal</field>
+			<field name="inherit_id" ref="account.view_account_journal_form"/>
+			<field name="arch" type="xml">
+				<field name="type" position="after">
+					<field name="group"/>
+				</field>
+			</field>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 				ACCOUNT JOURNAL GROUP ACTION			-->
+		<!-- ====================================================== -->
+		<record model="ir.actions.act_window" id="action_account_journal_group">
+			<field name="name">Account Journal Group</field>
+			<field name="res_model">account.journal.group</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="account_journal_group_tree"/>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 							MENU						-->
+		<!-- ====================================================== -->
+		<menuitem name="Account Journal Group" parent="account.menu_configuration_misc" id="menu_account_journal_group" action="action_account_journal_group"/>
+
+	</data>
+</openerp>

@@ -1,12 +1,14 @@
-# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 ##############################################################################
-#    
-#    Copyright (C) {year} {developer} (<{mail}>)
-#    All Rights Reserved
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (c) 2012 Andrea Cometa All Rights Reserved.
+#                       www.andreacometa.it
+#                       openerp@andreacometa.it
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -20,20 +22,21 @@
 ##############################################################################
 
 {
-    'name': "Expenses manage for account",
-    'version': '1.0',
+    'name': "Account Journal Group Report",
+    'version': '0.1',
     'category': 'Account',
-    'description': """
-        Manage the expenses rof the account payment terms
-    """,
+    'description': """ENG: Provides a report of the journals belonging to a defined group\nITA: Fornisce un report di stampa dei sezionali appartenenti ad un gruppo definito""",
     'author': 'www.andreacometa.it',
     'website': 'http://www.andreacometa.it',
     'license': 'AGPL-3',
-    "depends" : ['account'],
+    "depends" : ['account', 'report_webkit'],
     "init_xml" : [],
     "update_xml" : [
-        'account/account_view.xml'
-    ],
+        'account/account_view.xml',
+        'reports/reports.xml',
+        #'security/security.xml',
+        'security/ir.model.access.csv',
+        ],
     "demo_xml" : [],
     "active": False,
     "installable": True,
