@@ -13,7 +13,7 @@
 			<field name="arch" type="xml">
 				<form string="Account Journal Group">
 					<field name="name" colspan="4"/>
-					<!--field name="journals_ids" colspan="4"/-->
+					<field name="journals_ids" colspan="4"/>
 				</form>
 			</field>
 		</record>
@@ -41,7 +41,7 @@
 			<field name="inherit_id" ref="account.view_account_move_filter"/>
 			<field name="arch" type="xml">
 				<field name="period_id" position="after">
-					<field name="group"/>
+					<field name="group" widget="selection"/>
 				</field>
 			</field>
 		</record>
