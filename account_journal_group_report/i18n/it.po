@@ -1,29 +1,24 @@
-# Italian translation for andreacometa-addons
-# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
-# This file is distributed under the same license as the andreacometa-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* account_journal_group_report
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: andreacometa-addons\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-02-06 11:56+0000\n"
-"PO-Revision-Date: 2013-02-06 19:14+0000\n"
-"Last-Translator: Andrea Cometa <Unknown>\n"
-"Language-Team: Italian <it@li.org>\n"
+"Project-Id-Version: OpenERP Server 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-07 09:00+0000\n"
+"PO-Revision-Date: 2013-02-07 09:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-06 19:24+0000\n"
-"X-Generator: Launchpad (build 16477)\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: account_journal_group_report
 #: constraint:account.move:0
-msgid ""
-"You can not create more than one move per period on centralized journal"
-msgstr ""
-"Non è possibile creare più di un movimento per periodo su un sezionale "
-"centralizzato"
+msgid "You can not create more than one move per period on centralized journal"
+msgstr "Non è possibile creare più di un movimento per periodo su un sezionale centralizzato"
 
 #. module: account_journal_group_report
 #: report:addons/account_journal_group_report/reports/account_journal_report.mako:62
@@ -67,6 +62,16 @@ msgid "REF"
 msgstr "RIF"
 
 #. module: account_journal_group_report
+#: model:ir.ui.menu,name:account_journal_group_report.menu_account_journal_group
+msgid "Account Journals Groups"
+msgstr "Gruppi dei sezionali"
+
+#. module: account_journal_group_report
+#: view:account.journal.group:0
+msgid "Group Journals"
+msgstr "Sezionali del gruppo"
+
+#. module: account_journal_group_report
 #: model:ir.model,name:account_journal_group_report.model_account_journal
 msgid "Journal"
 msgstr "Sezionale"
@@ -88,12 +93,8 @@ msgstr "Nome"
 
 #. module: account_journal_group_report
 #: constraint:account.journal:0
-msgid ""
-"Configuration error! The currency chosen should be shared by the default "
-"accounts too."
-msgstr ""
-"Errore di configurazione!  La valuta selezionata deve essere anche condivisa "
-"dai conti di default."
+msgid "Configuration error! The currency chosen should be shared by the default accounts too."
+msgstr "Errore di configurazione!  La valuta selezionata deve essere anche condivisa dai conti di default."
 
 #. module: account_journal_group_report
 #: model:ir.model,name:account_journal_group_report.model_account_move
@@ -106,7 +107,6 @@ msgstr "Registrazione Contabile"
 #: field:account.move,group:0
 #: model:ir.actions.act_window,name:account_journal_group_report.action_account_journal_group
 #: model:ir.model,name:account_journal_group_report.model_account_journal_group
-#: model:ir.ui.menu,name:account_journal_group_report.menu_account_journal_group
 msgid "Account Journal Group"
 msgstr "Gruppo del sezionale"
 
@@ -139,3 +139,4 @@ msgstr "PARTNER"
 #: report:addons/account_journal_group_report/reports/account_journal_report.mako:10
 msgid "ACCOUNT JOURNAL REPORT by GROUP"
 msgstr "REPORT SEZIONALE per GRUPPO"
+
