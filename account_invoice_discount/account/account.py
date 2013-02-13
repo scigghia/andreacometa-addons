@@ -115,16 +115,6 @@ class account_invoice(osv.osv):
 		else:
 			raise osv.except_osv(_('Warning !'), _('There must be, an account whit flag_discount=True, to compute move lines!'))
 		sconto = (100.00 - invoice_browse.global_discount) / 100.00
-		#for m in move_lines:
-		#	if m[2]['account_id'] not in temp:
-		#		temp[m[2]['account_id']] = [m[2]]
-		#	else:
-		#		temp[m[2]['account_id']] += [m[2]]
-	
-		#{33: [{'analytic_account_id': False, 'tax_code_id': False, 'analytic_lines': [], 'tax_amount': False, 'name': u'Fattura Differita', 'ref': '', 'analytics_id': False, 'currency_id': False, 'credit': False, 'product_id': False, 'date_maturity': '2013-02-07', 'debit': 58.439999999999998, 'date': '2013-02-07', 'amount_currency': 0, 'product_uom_id': False, 'quantity': 1.0, 'partner_id': 683, 'account_id': 33}],
-		# 132: [{'analytic_account_id': False, 'tax_code_id': False, 'analytic_lines': [], 'tax_amount': False, 'name': u'Riferimento: O1300473', 'ref': '', 'analytics_id': False, 'currency_id': False, 'credit': False, 'product_id': False, 'date_maturity': False, 'debit': False, 'date': '2013-02-07', 'amount_currency': 0, 'product_uom_id': False, 'quantity': 1.0, 'partner_id': 683, 'account_id': 132}, 
-		#		{'analytic_account_id': False, 'tax_code_id': 45, 'analytic_lines': [], 'tax_amount': 48.550000000000004, 'name': u'ZANZARIERA SCORREVOLE CASS. 50 BIA', 'ref': '', 'analytics_id': False, 'currency_id': False, 'credit': 48.550600000000003, 'product_id': 4485, 'date_maturity': False, 'debit': False, 'date': '2013-02-07', 'amount_currency': 0, 'product_uom_id': 14, 'quantity': 2.73, 'partner_id': 683, 'account_id': 132}], 
-		# 94: [{'analytic_account_id': False, 'tax_code_id': 44, 'analytic_lines': [], 'tax_amount': 9.8900000000000006, 'name': u'21a - Iva al 21% (debito)', 'ref': '', 'analytics_id': False, 'currency_id': False, 'credit': 9.8900000000000006, 'product_id': False, 'date_maturity': False, 'debit': False, 'date': '2013-02-07', 'amount_currency': 0, 'product_uom_id': False, 'quantity': 1, 'partner_id': 683, 'account_id': 94}]}
 		total_amount = 0.0
 		for m in move_lines:
 			if m[2]['credit'] > 0.0:
