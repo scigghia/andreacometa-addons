@@ -38,24 +38,20 @@ riba/bonifico
 				<% tot_credit = 0 %>
 				<% tot_debit = 0 %>
 				<% line_name = '' %>
-				<% invoice_date = '' %>
+				<% date_i = '' %>
 				% if move.line_id:
 				%for line in move.line_id:
 					%if line.account_id.type in ('payable', 'receivable'):
 						<% tot_debit += line.debit%>
 						<% tot_credit +=  line.credit%>
 						<% line_name = line.name %>
-						%if line.invoice:
-							<% invoice_date = line.invoice.date_invoice %>
-						%else:
-							<% invoice_date = 'none' %>
-						%endif
 					%endif
 				%endfor
 				%endif
+				<% date_i = prova() %>
 				<td style="width:6%; float:left;">${move.date or ''}</td>
 				<td style="width:10%; float:left;">${line_name or ''}</td>
-				<td style="width:6%; float:left;">${invoice_date or ''}</td>
+				<td style="width:6%; float:left;">${date_i}</td>
 				<td style="width:8%; float:left;">${move.ref or ''}</td>
 				<td class="w35"><p style="text-align:left;">${move.line_id and move.line_id[0].partner_id.name or ''}</p></td>
 				<td class="w15"><p style="text-align:left;">${move.journal_id and move.journal_id.name or ''}</p></td>

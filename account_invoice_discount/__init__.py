@@ -21,42 +21,6 @@
 #
 ##############################################################################
 
-from osv import fields, osv
+import account
 
 
-class account_journal_group(osv.osv):
-	
-	_name = 'account.journal.group'
-	_description = 'Account Journal Group'
-
-	_columns = {
-		'name' : fields.char('Name', size=64),
-		'journals_ids': fields.one2many('account.journal', 'group', 'Account Journals'),
-	}
-
-account_journal_group()
-
-class account_journal(osv.osv):
-	_inherit = "account.journal"
-	_columns = {
-		'group':fields.many2one('account.journal.group', 'Account Journal Group', 
-			help="Journal Group for printing"),
-	}
-account_journal()
-
-class account_move(osv.osv):
-	_inherit = "account.move"
-	_columns = {
-		'group':fields.related('journal_id', 'group', type="many2one",
-			relation="account.journal.group", string='Account Journal Group', 
-			help="Journal Group for printing"),
-	}
-account_move()
-
-class account_move_line(osv.osv):
-	_inherit = "account.move.line"
-	_columns = {
-		'date_invoice': fields.related('invoice','date_invoice', string='Invoice date', type='date', select=True),
-
-	}
-account_move_line()
