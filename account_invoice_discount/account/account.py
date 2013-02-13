@@ -120,7 +120,7 @@ class account_invoice(osv.osv):
 			if m[2]['credit'] > 0.0:
 				total_amount += m[2]['credit']
 		new_line = {'analytic_account_id': False, 'tax_code_id': False, 'analytic_lines': [],
-			'tax_amount': False, 'name': u'Sconto Globale', 'ref': '',
+			'tax_amount': False, 'name': _('Global Discount'), 'ref': '',
 			'analytics_id': False, 'currency_id': False, 'debit': total_amount - invoice_browse.amount_total ,
 			'product_id': False, 'date_maturity': False, 'credit': False, 'date': move_lines[0][2]['date'],
 			'amount_currency': 0, 'product_uom_id': False, 'quantity': 1, 'partner_id': move_lines[0][2]['partner_id'],
