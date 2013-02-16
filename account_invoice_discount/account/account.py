@@ -62,6 +62,7 @@ class account_invoice(osv.osv):
 			result[tax.invoice_id.id] = True
 		return result.keys()
 
+	"""
 	def _global_discount_amount(self, cr, uid, ids, field_name, arg, context):
 		res={}
 		for inv in self.browse(cr, uid, ids):
@@ -70,12 +71,13 @@ class account_invoice(osv.osv):
 				amt+=line.global_discount_amount
 			res[inv.id]=amt
 		return res
+	"""
 
 	_columns = {
 		'global_discount' : fields.float('Global Discount', states={'draft':[('readonly',False)]}, 
 			help="Invoice Global Discount [0-100]"),
-		'global_discount_amount': fields.function(_global_discount_amount, method=True, 
-			type="float", string="Global Discount Amount"),
+		#'global_discount_amount': fields.function(_global_discount_amount, method=True, 
+		#	type="float", string="Global Discount Amount"),
 		'amount_untaxed': fields.function(_amount_all, digits_compute=dp.get_precision('Account'), string='Untaxed',
 			store={
 				'account.invoice': (lambda self, cr, uid, ids, c={}: ids, ['invoice_line'], 20),

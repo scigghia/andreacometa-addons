@@ -35,8 +35,8 @@ class account_journal_report(report_sxw.rml_parse):
 		#return invoice.date_invoice
 		return True
 	
-	def prova(self):
-		return "ciao"
+	def prova(self, stringa):
+		return stringa
 
 	def __init__(self, cr, uid, name, context):
 		super(account_journal_report, self).__init__(cr, uid, name, context=context)
@@ -51,7 +51,7 @@ class account_journal_report(report_sxw.rml_parse):
 			'prova':self.prova,
 		})
 
-report_sxw.report_sxw('report.account_journal_by_group',
+report_sxw.report_sxw('report.webkit.account_journal_by_group',
 						'account.move', 
 						'account_journal_group_report/reports/account_journal_report.mako',
 						parser=account_journal_report)

@@ -48,7 +48,7 @@ riba/bonifico
 					%endif
 				%endfor
 				%endif
-				<% date_i = prova() %>
+				<% date_i = invoice_date(move.name) %>
 				<td style="width:6%; float:left;">${move.date or ''}</td>
 				<td style="width:10%; float:left;">${line_name or ''}</td>
 				<td style="width:6%; float:left;">${date_i}</td>
