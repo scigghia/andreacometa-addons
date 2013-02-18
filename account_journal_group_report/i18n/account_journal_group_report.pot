@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-06 11:56+0000\n"
-"PO-Revision-Date: 2013-02-06 11:56+0000\n"
+"POT-Creation-Date: 2013-02-18 18:51+0000\n"
+"PO-Revision-Date: 2013-02-18 18:51+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,12 +21,17 @@ msgid "You can not create more than one move per period on centralized journal"
 msgstr ""
 
 #. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:62
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:96
 msgid "TOTAL:"
 msgstr ""
 
 #. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:61
+#: constraint:account.move.line:0
+msgid "Company must be the same for its related account and period."
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:95
 msgid "DEBIT:"
 msgstr ""
 
@@ -37,12 +42,12 @@ msgid "Journal Group for printing"
 msgstr ""
 
 #. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:60
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:94
 msgid "CREDIT:"
 msgstr ""
 
 #. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:20
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:21
 msgid "DEBIT"
 msgstr ""
 
@@ -57,8 +62,23 @@ msgid "Account Journal Report by Group"
 msgstr ""
 
 #. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:16
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:17
 msgid "REF"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:19
+msgid "PAYMENT TERMS"
+msgstr ""
+
+#. module: account_journal_group_report
+#: model:ir.ui.menu,name:account_journal_group_report.menu_account_journal_group
+msgid "Account Journals Groups"
+msgstr ""
+
+#. module: account_journal_group_report
+#: view:account.journal.group:0
+msgid "Group Journals"
 msgstr ""
 
 #. module: account_journal_group_report
@@ -72,6 +92,16 @@ msgid "The code of the journal must be unique per company !"
 msgstr ""
 
 #. module: account_journal_group_report
+#: model:ir.model,name:account_journal_group_report.model_account_move_line
+msgid "Journal Items"
+msgstr ""
+
+#. module: account_journal_group_report
+#: constraint:account.move.line:0
+msgid "You can not create journal items on an account of type view."
+msgstr ""
+
+#. module: account_journal_group_report
 #: report:addons/account_journal_group_report/reports/account_journal_report.mako:15
 msgid "DOCUMENT"
 msgstr ""
@@ -82,8 +112,23 @@ msgid "Name"
 msgstr ""
 
 #. module: account_journal_group_report
+#: field:account.move.line,date_invoice:0
+msgid "Invoice date"
+msgstr ""
+
+#. module: account_journal_group_report
 #: constraint:account.journal:0
 msgid "Configuration error! The currency chosen should be shared by the default accounts too."
+msgstr ""
+
+#. module: account_journal_group_report
+#: sql_constraint:account.move.line:0
+msgid "Wrong credit or debit value in accounting entry !"
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:16
+msgid "DOCUMENT DATE"
 msgstr ""
 
 #. module: account_journal_group_report
@@ -92,18 +137,17 @@ msgid "Account Entry"
 msgstr ""
 
 #. module: account_journal_group_report
+#: constraint:account.move.line:0
+msgid "You can not create journal items on closed account."
+msgstr ""
+
+#. module: account_journal_group_report
 #: field:account.journal,group:0
 #: view:account.journal.group:0
 #: field:account.move,group:0
 #: model:ir.actions.act_window,name:account_journal_group_report.action_account_journal_group
 #: model:ir.model,name:account_journal_group_report.model_account_journal_group
-#: model:ir.ui.menu,name:account_journal_group_report.menu_account_journal_group
 msgid "Account Journal Group"
-msgstr ""
-
-#. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:18
-msgid "JOURNAL"
 msgstr ""
 
 #. module: account_journal_group_report
@@ -112,7 +156,17 @@ msgid "The name of the journal must be unique per company !"
 msgstr ""
 
 #. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:19
+#: constraint:account.move.line:0
+msgid "The selected account of your Journal Entry forces to provide a secondary currency. You should remove the secondary currency on the account or select a multi-currency view on the journal."
+msgstr ""
+
+#. module: account_journal_group_report
+#: constraint:account.move.line:0
+msgid "The date of your Journal Entry is not in the defined period! You should change the date or remove this constraint from the journal."
+msgstr ""
+
+#. module: account_journal_group_report
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:20
 msgid "CREDIT"
 msgstr ""
 
@@ -122,7 +176,7 @@ msgid "Account Journals"
 msgstr ""
 
 #. module: account_journal_group_report
-#: report:addons/account_journal_group_report/reports/account_journal_report.mako:17
+#: report:addons/account_journal_group_report/reports/account_journal_report.mako:18
 msgid "PARTNER"
 msgstr ""
 
