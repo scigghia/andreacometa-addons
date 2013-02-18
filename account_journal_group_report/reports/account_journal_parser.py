@@ -24,31 +24,15 @@
 import time
 from report import report_sxw
 from datetime import datetime
-from osv import osv, fields
-import pooler
 
 class account_journal_report(report_sxw.rml_parse):
-	def _invoice_date(self, move_id):
-		print "CARNE"
-		#invoice_id = pooler.get_pool(self.cr.dbname).get('account.invoice').search(self, self.cr, self.uid, [('move_id', '=', move_id)])
-		#invoice = pooler.get_pool(self.cr.dbname).get('account.invoice').browse(self, self.cr, self.uid, invoice_id)
-		#return invoice.date_invoice
-		return True
-	
-	def prova(self, stringa):
-		return stringa
-
 	def __init__(self, cr, uid, name, context):
 		super(account_journal_report, self).__init__(cr, uid, name, context=context)
-		#file_path = os.path.dirname(inspect.getfile(inspect.currentframe()))
 		self.localcontext.update({
 			'datetime': datetime,
 			'time': time,
 			'cr':cr,
 			'uid': uid,
-			#'file_path':file_path,
-			#'invoice_date':self._invoice_date,
-			'prova':self.prova,
 		})
 
 report_sxw.report_sxw('report.webkit.account_journal_by_group',
