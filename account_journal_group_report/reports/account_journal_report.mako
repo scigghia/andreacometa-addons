@@ -45,33 +45,37 @@
 						<% tot_credit +=  line.credit%>
 						%if line.reconcile_id.line_id != None:
 							<% line_rec_ids = line.reconcile_id.line_id %>
-						%else:
+						%elif line.reconcile_partial_id.line_partial_ids != None:
 							<% line_rec_ids = line.reconcile_partial_id.line_partial_ids %>
+						%else:
+							<% line_rec_ids = None %>
 						%endif
-						% for ll in line_rec_ids:
-							%if ll.invoice != None:
-								%if ll.invoice.type == 'out_invoice':
-									<% line_name_tmp = ll.invoice.number or ''%>
-								%else:
-									<% line_name_tmp = ll.invoice.origin or ''%>
-								%endif
-								%if line_name == '' or line_name == None:
-									<% line_name = line_name_tmp %>
-								%else:
-									<% line_name = '%s, %s' % (line_name, line_name_tmp) %>
-								%endif
-								%if ll.invoice.date_invoice != None:
-									%if date_i == '':
-										<% date_i = ll.invoice.date_invoice %>
+						%if line_rec_ids != None:
+							% for ll in line_rec_ids:
+								%if ll.invoice != None:
+									%if ll.invoice.type == 'out_invoice':
+										<% line_name_tmp = ll.invoice.number or ''%>
 									%else:
-										<% date_i = '%s, %s' % (date_i, ll.invoice.date_invoice) %>
+										<% line_name_tmp = ll.invoice.origin or ''%>
 									%endif
-									%if payment_terms == '' and ll.invoice.payment_term != None:
-										<% payment_terms = ll.invoice.payment_term.name %>
+									%if line_name == '' or line_name == None:
+										<% line_name = line_name_tmp %>
+									%else:
+										<% line_name = '%s, %s' % (line_name, line_name_tmp) %>
+									%endif
+									%if ll.invoice.date_invoice != None:
+										%if date_i == '':
+											<% date_i = ll.invoice.date_invoice %>
+										%else:
+											<% date_i = '%s, %s' % (date_i, ll.invoice.date_invoice) %>
+										%endif
+										%if payment_terms == '' and ll.invoice.payment_term != None:
+											<% payment_terms = ll.invoice.payment_term.name %>
+										%endif
 									%endif
 								%endif
-							%endif
-						%endfor
+							%endfor
+						%endif
 					%endif
 				%endfor
 				%endif
