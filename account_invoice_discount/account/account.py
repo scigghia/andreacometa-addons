@@ -123,7 +123,7 @@ class account_invoice(osv.osv):
 				total_amount += m[2]['credit']
 		new_line = {'analytic_account_id': False, 'tax_code_id': False, 'analytic_lines': [],
 			'tax_amount': False, 'name': _('Global Discount'), 'ref': '',
-			'analytics_id': False, 'currency_id': False, 'debit': total_amount - invoice_browse.amount_total ,
+			'analytics_id': False, 'currency_id': False, 'debit': False ,
 			'product_id': False, 'date_maturity': False, 'credit': False, 'date': move_lines[0][2]['date'],
 			'amount_currency': 0, 'product_uom_id': False, 'quantity': 1, 'partner_id': move_lines[0][2]['partner_id'],
 			'account_id': account_discount_id}
@@ -146,7 +146,10 @@ class account_invoice(osv.osv):
 			credit += round(m[2]['credit'], precisione)
 		precision_diff = round(credit - debit, precisione)
 		#print precision_diff
-		new_line['debit']=precision_diff
+		if precision_diff < 0.0:
+			new_line['credit']=abs(precision_diff)
+		else:
+			new_line['debit']=precision_diff
 		move_lines += [(0,0,new_line)]
 		return move_lines
 
