@@ -40,7 +40,7 @@
 				<% payment_terms = '' %>
 				% if move.line_id:
 				%for line in move.line_id:
-					%if line.account_id.type in ('payable', 'receivable'):
+					%if line.account_id.type in ( 'liquidity'):
 						<% tot_debit += line.debit%>
 						<% tot_credit +=  line.credit%>
 						%if line.reconcile_id.line_id != None:
