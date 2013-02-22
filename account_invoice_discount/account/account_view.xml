@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+	<data>
+		<!-- ====================================================== -->
+		<!-- 				ACCOUNT.INVOICE.GROUP FORM				-->
+		<!-- ====================================================== -->
+		<record id="account_invoice_discount" model="ir.ui.view">
+			<field name="name">account.invoice.discount.form</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.invoice_form"/>
+			<field name="arch" type="xml">
+				<field name="name" position="after">
+					<field name="global_discount" groups="account.group_account_user" />
+				</field>
+			</field>
+		</record>
+
+		<!-- ====================================================== -->
+		<!-- 				ACCOUNT.ACCOUNT.VIEW FORM				-->
+		<!-- ====================================================== -->
+		<record id="account_account_discount" model="ir.ui.view">
+			<field name="name">account.account.discount.form</field>
+			<field name="model">account.account</field>
+			<field name="inherit_id" ref="account.view_account_form"/>
+			<field name="arch" type="xml">
+				<field name="code" position="after">
+					<field name="flag_discount" groups="account.group_account_user" />
+				</field>
+			</field>
+		</record>
+	</data>
+</openerp>
