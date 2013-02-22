@@ -34,6 +34,22 @@
 			</field>
 		</field>
 	</record>
+	
+	<!-- ======================================================	-->
+	<!--  					INVOICE SUPPLIER FORM				-->
+	<!-- ======================================================	-->
+	<record id="iew_invoice_supplier_form_doppio_sconto" model="ir.ui.view">
+		<field name="name">account.invoice.suppliee.doppio_sconto</field>
+		<field name="model">account.invoice</field>
+		<field name="inherit_id" ref="account.invoice_supplier_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="/form/notebook/page/field[@name='invoice_line']/tree/field[@name='price_unit']" position="before">
+				<field name="discount" invisible="1"/>
+				<field name="sconto_primario" on_change="onchange_sconti(sconto_primario,sconto_aggiuntivo)"/>
+				<field name="sconto_aggiuntivo" on_change="onchange_sconti(sconto_primario,sconto_aggiuntivo)"/>
+			</xpath>
+		</field>
+	</record>
 
 	</data>
 </openerp>
