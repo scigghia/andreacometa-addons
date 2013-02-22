@@ -127,16 +127,18 @@ class account_invoice(osv.osv):
 			'product_id': False, 'date_maturity': False, 'credit': False, 'date': move_lines[0][2]['date'],
 			'amount_currency': 0, 'product_uom_id': False, 'quantity': 1, 'partner_id': move_lines[0][2]['partner_id'],
 			'account_id': account_discount_id}
-		num_lines=0
-		for m in move_lines:
-			if m[2]['debit'] > 0.0:
-				num_lines+=1
-		discount_amount = (total_amount - invoice_browse.amount_total) / num_lines
-		#print num_lines, discount_amount
-		for m in move_lines:
-			if m[2]['debit'] > 0.0:
-				#print m[2]['debit']
-				m[2]['debit'] -= discount_amount
+		# se c'è lo sconto va tolto dalle scadenze 
+		if invoice_browse.global_discount > 0.00:
+			num_lines=0
+			for m in move_lines:
+				if m[2]['debit'] > 0.0:
+					num_lines+=1
+			discount_amount = (total_amount - invoice_browse.amount_total) / num_lines
+			#print num_lines, discount_amount
+			for m in move_lines:
+				if m[2]['debit'] > 0.0:
+					#print m[2]['debit']
+					m[2]['debit'] -= discount_amount
 		#move_lines += [(0,0,new_line)]
 		precisione = self.pool.get('decimal.precision').precision_get(cr, 1, 'Account')
 		debit=credit=0.0
