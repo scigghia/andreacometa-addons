@@ -4,6 +4,20 @@
 	<data>
 
 		<!-- ======================================================	-->
+		<!--  					ACCOUNT.INVOICE FILTERS				-->
+		<!-- ======================================================	-->
+		<record id="view_account_invoice_filter_salesagent" model="ir.ui.view">
+			<field name="name">account.invoice.select.salesagent</field>
+			<field name="model">account.invoice</field>
+			<field name="inherit_id" ref="account.view_account_invoice_filter"/>
+			<field name="arch" type="xml">
+				<field name='user_id' position="before">
+					<field name="salesagent_id" domain="[('salesagent', '=', 1)]"/>
+				</field>
+			</field>
+		</record>
+
+		<!-- ======================================================	-->
 		<!--  				ACCOUNT.INVOICE.LINE TREE				-->
 		<!-- ======================================================	-->
 		<record id="view_invoice_line_tree_salesagent" model="ir.ui.view">
