@@ -16,9 +16,8 @@
 			<td style="width:6%; float:left;">${_("DOCUMENT DATE")}</td>
 			<td style="width:8%; float:left;">${_("REF")}</td>
 			<td class="w30"><p style="text-align:left;">${_("PARTNER")}</p></td>
-			<td class="w20"><p style="text-align:left;">${_("PAYMENT TERMS")}</p></td>
-			<td class="w10"><p style="text-align:left;">${_("CREDIT")}</p></td>
-			<td class="w10"><p style="text-align:left;">${_("DEBIT")}</p></td>
+			<td class="w20"><p style="text-align:left;">${_("ACCOUNT JOURNAL")}</p></td>
+			<td class="w10"><p style="text-align:left;">${_("AMOUNT")}</p></td>
 		</tr>
 	</table>
 		
@@ -38,17 +37,26 @@
 				<% line_name_tmp = '' %>
 				<% date_i = '' %>
 				<% payment_terms = '' %>
+				<% segno = 1 %>
 				% if move.line_id:
 				%for line in move.line_id:
 					%if line.account_id.type in ('receivable', 'payable', 'liquidity'):
-						<% tot_debit += line.debit%>
-						<% tot_credit +=  line.credit%>
+						%if line.account_id.type == 'payable':
+							<% segno = -1%>
+						%else:
+							<% segno = 1 %>
+						%endif
+						<% tot_debit +=  (line.debit * segno) %>
+						<% tot_credit +=  line.credit %>
 						%if line.reconcile_id.line_id != None:
 							<% line_rec_ids = line.reconcile_id.line_id %>
 						%elif line.reconcile_partial_id.line_partial_ids != None:
 							<% line_rec_ids = line.reconcile_partial_id.line_partial_ids %>
 						%else:
 							<% line_rec_ids = None %>
+							%if tot_debit == 0:
+								<% tot_debit =  tot_credit %>
+							%endif
 						%endif
 						%if line_rec_ids != None:
 							% for ll in line_rec_ids:
@@ -69,9 +77,6 @@
 										%else:
 											<% date_i = '%s, %s' % (date_i, ll.invoice.date_invoice) %>
 										%endif
-										%if payment_terms == '' and ll.invoice.payment_term != None:
-											<% payment_terms = ll.invoice.payment_term.name %>
-										%endif
 									%endif
 								%endif
 							%endfor
@@ -84,19 +89,15 @@
 				<td style="width:6%; float:left;">${date_i}</td>
 				<td style="width:8%; float:left;">${move.ref or ''}</td>
 				<td class="w30"><p style="text-align:left;">${move.line_id and move.line_id[0].partner_id.name or ''}</p></td>
-				<td class="w20"><p style="text-align:left;">${payment_terms}</p></td>
-				<td class="w10"><p style="text-align:right;">${formatLang(tot_credit or 0.00, digits=get_digits(dp='Account'))}</p></td>
-				<td class="w10"><p style="text-align:right;">${formatLang(tot_debit or 0.00, digits=get_digits(dp='Account'))}</p></td>
+				<td class="w20"><p style="text-align:left;">${move.journal_id.name}</p></td>
+				<td class="w10"><p style="text-align:left;">${formatLang(tot_debit or 0.00, digits=get_digits(dp='Account'))}</p></td>
 			</tr>
-			<%tot_amount += tot_credit - tot_debit %>
-			<%big_credit += tot_credit %>
-			<%big_debit += tot_debit %>
+			<%tot_amount += tot_debit %>
+
 		%endif
         %endfor
         <tr><td colspan=8><hr style="width:100%"></td></tr>
 		<tr style="height:100%">
-			<td class="font_10" colspan="2"><b>${_("CREDIT:")} ${formatLang(big_credit or 0.00, digits=get_digits(dp='Account'))}</b></td>
-			<td class="font_10" colspan="2"><b>${_("DEBIT:")} ${formatLang(big_debit or 0.00, digits=get_digits(dp='Account'))}</b></td>
 			<td class="font_10" colspan="4"><b>${_("TOTAL:")} ${formatLang(tot_amount or 0.00, digits=get_digits(dp='Account'))}</b></td>
 		</tr>
     </table>

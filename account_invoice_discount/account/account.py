@@ -100,6 +100,9 @@ class account_invoice(osv.osv):
 			},
 			multi='all'),
 	}
+	_defaults = {
+		'global_discount': 0.0,
+	}
 
 	def finalize_invoice_move_lines(self, cr, uid, invoice_browse, move_lines):
 		"""finalize_invoice_move_lines(cr, uid, invoice, move_lines) -> move_lines
