@@ -23,7 +23,7 @@ msgstr "La percentuale per il pagamento parziale deve essere un numero fra 0 ed 
 #. module: account_spesa
 #: field:account.spesa,account_id:0
 msgid "Account"
-msgstr "Giornale"
+msgstr "Conto"
 
 #. module: account_spesa
 #: field:account.spesa,name:0
