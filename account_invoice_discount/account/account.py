@@ -148,22 +148,26 @@ class account_invoice(osv.osv):
 			#print num_lines, discount_amount
 			for m in move_lines:
 				if m[2]['debit'] > 0.0:
-					print m[2]['debit']
+					#print m[2]['debit']
 					m[2]['debit'] -= discount_amount
 		#print move_lines 
 		precisione = self.pool.get('decimal.precision').precision_get(cr, 1, 'Account')
 		debit=credit=0.0
 		for m in move_lines:
-			#print m[2]['debit'], "\t", m[2]['credit']
-			debit += round(m[2]['debit'], precisione)
-			credit += round(m[2]['credit'], precisione)
+			#print round(m[2]['debit'], precisione), "\t", round(m[2]['credit'], precisione)
+			m[2]['debit'] = round(m[2]['debit'], precisione)
+			m[2]['credit'] = round(m[2]['credit'], precisione)
+			debit += m[2]['debit']
+			credit += m[2]['credit']
 		precision_diff = round(credit - debit, precisione)
 		#print precision_diff
-		if precision_diff < 0.0:
-			new_line['credit']=abs(precision_diff)
-		else:
-			new_line['debit']=precision_diff
-		move_lines += [(0,0,new_line)]
+		if precision_diff != 0.0:
+			if precision_diff < 0.0:
+				new_line['credit']=abs(precision_diff)
+			else:
+				new_line['debit']=precision_diff
+			move_lines += [(0,0,new_line)]
+		#print move_lines
 		return move_lines
 
 account_invoice()
