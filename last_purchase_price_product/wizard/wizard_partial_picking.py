@@ -38,8 +38,8 @@ class partial_picking(osv.osv_memory):
 		pick_list = pick_obj.browse(cr, uid, picking_ids, context=context)
 		for pick in pick_list:
 			if pick.type == 'in' and pick.origin:
-				order_id = purchase_obj.search(cr, uid, [('name','=',pick.origin)], limit=1)[0]
-				if order_id:
+				order_ids = purchase_obj.search(cr, uid, [('name','=',pick.origin)], limit=1)
+				for order_id in order_ids:
 					order = purchase_obj.browse(cr, uid, order_id)
 					for move in partial.move_ids:
 						if move.product_id.cost_method == 'lpp':
