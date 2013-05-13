@@ -30,8 +30,30 @@
 		<% tot_importo = 0 %>
 		<% tot_dare = 0 %>
 		<% tot_avere = 0 %>
+		<% data_scadenza = '0000-00-00' %>
 		%for line in objects:
 		%if line:    
+			%if data_scadenza != (line.date_maturity or line.date):
+				%if data_scadenza != '0000-00-00':
+					<tr><td colspan=8><hr style="width:100%"></td></tr>
+					<tr>
+						<td class="w10">&nbsp;</td>
+						<td class="w25">&nbsp;</td>
+						<td class="w10">&nbsp;</td>
+						<td class="w10">&nbsp;</td>
+						<td class="w15"><b>TOTALE SCADENZA</b></td>
+						<td class="w10"><p style="text-align:right;"><b>${parziale_importo}</b></p></td>
+						<td class="w10"><p style="text-align:right;"><b>${parziale_dare}</b></p></td>
+						<td class="w10"><p style="text-align:right;"><b>${parziale_avere}</b></p></td>
+					</tr>
+					<tr><td colspan=8>&nbsp;</td></tr>
+				%endif
+				<% parziale_importo = 0 %>
+				<% parziale_dare = 0 %>
+				<% parziale_avere = 0 %>
+				<% data_scadenza = (line.date_maturity or line.date) %>
+			%endif
+
 			<tr>
 				<td class="w10"><p style="text-align:left;">${line.invoice.journal_id and line.invoice.journal_id.code or ''}</p></td>
 				<td class="w25"><p style="text-align:left;">${line.partner_id.name or ''}</p></td>
@@ -44,11 +66,15 @@
 			</tr>
 			%if line.debit == 0.0:
 				<%tot_importo -= line.amount_residual %>
+				<% parziale_importo -= line.amount_residual %>
 			%else:
 				<%tot_importo += line.amount_residual %>
+				<% parziale_importo += line.amount_residual %>
 			%endif
 			<% tot_dare += line.debit %>
 			<% tot_avere += line.credit %>
+			<% parziale_dare += line.debit %>
+			<% parziale_avere += line.credit %>
 		%endif
         %endfor
         <tr><td colspan=8><hr style="width:100%"></td></tr>
