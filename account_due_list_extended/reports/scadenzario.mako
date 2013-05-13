@@ -77,13 +77,26 @@
 			<% parziale_avere += line.credit %>
 		%endif
         %endfor
+		<tr><td colspan=8><hr style="width:100%"></td></tr>
+		<tr>
+			<td class="w10">&nbsp;</td>
+			<td class="w25">&nbsp;</td>
+			<td class="w10">&nbsp;</td>
+			<td class="w10">&nbsp;</td>
+			<td class="w15"><b>TOTALE SCADENZA</b></td>
+			<td class="w10"><p style="text-align:right;"><b>${parziale_importo}</b></p></td>
+			<td class="w10"><p style="text-align:right;"><b>${parziale_dare}</b></p></td>
+			<td class="w10"><p style="text-align:right;"><b>${parziale_avere}</b></p></td>
+		</tr>
+		<tr><td colspan=8>&nbsp;</td></tr>
+
         <tr><td colspan=8><hr style="width:100%"></td></tr>
 		<tr style="height:100%">
 			<td class="w10">&nbsp;</td>
 			<td class="w25">&nbsp;</td>
 			<td class="w10">&nbsp;</td>
 			<td class="w10">&nbsp;</td>
-			<td class="w15">&nbsp;</td>
+			<td class="w15"><b>TOTALE COMPLESSIVO</b></td>
 			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_importo}</p></td>
 			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_dare}</p></td>
 			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_avere}</p></td>
