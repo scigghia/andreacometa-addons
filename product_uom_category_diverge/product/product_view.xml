@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+
+    <record id="product_uom_category_diverge_tree" model="ir.ui.view">
+        <field name="name">product.uom.category.diverge.tree</field>
+        <field name="model">product.product</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Uom Category Diverge">
+                <field name="uom_categ_diverge"/>
+                <field name="default_code"/>
+                <field name="name"/>
+                <field name="uom_id"/>
+                <field name="uom_po_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_uom_category_diverge_filter" model="ir.ui.view">
+        <field name="name">product.uom.category.diverge.filter</field>
+        <field name="model">product.product</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Uom Category Diverge">
+                <field name="default_code"/>
+                <field name="name"/>
+                <field name="uom_id"/>
+                <field name="uom_po_id"/>
+           </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_product_uom_category_diverge">
+        <field name="name">Uom Category Diverge</field>
+        <field name="res_model">product.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="product_uom_category_diverge_tree"/>
+        <field name="search_view_id" ref="product_uom_category_diverge_filter"/>
+        <field name="domain">[('uom_categ_diverge', '=', True)]</field>
+    </record>
+
+    <menuitem name="Uom Category Diverge" parent="product.next_id_16" 
+        action="action_product_uom_category_diverge" id="product_uom_category_diverge_menu"/>
+
+</data>
+</openerp>

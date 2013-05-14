@@ -19,7 +19,7 @@
     'author': 'www.andreacometa.it',
     'website': 'http://www.andreacometa.it',
     'license': 'AGPL-3',
-    "depends" : ['product'],
+    "depends" : ['product', 'stock'],
     "init_xml" : [],
     "update_xml" : [
         'product/product_view.xml',
