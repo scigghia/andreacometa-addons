@@ -43,6 +43,7 @@ class account_invoice(osv.osv):
 	def _amount_all(self, cr, uid, ids, name, args, context=None):
 		res = super(account_invoice, self)._amount_all(cr, uid, ids, name, args, context)
 		for invoice in self.browse(cr, uid, ids, context=context):
+			res[invoice.id]['original_amount'] = res[invoice.id]['amount_untaxed']
 			if invoice.global_discount > 0.0:
 				sconto = (100.00 - invoice.global_discount) / 100.00
 				res[invoice.id]['amount_untaxed'] *= sconto
@@ -74,10 +75,16 @@ class account_invoice(osv.osv):
 	"""
 
 	_columns = {
-		'global_discount' : fields.float('Global Discount', states={'draft':[('readonly',False)]}, 
+		'global_discount' : fields.float("Global Discount", states={'draft':[('readonly',False)]}, 
 			help="Invoice Global Discount [0-100]"),
-		#'global_discount_amount': fields.function(_global_discount_amount, method=True, 
-		#	type="float", string="Global Discount Amount"),
+		'original_amount': fields.function(_amount_all, digits_compute=dp.get_precision('Account'), string='Original Amount',
+			store={
+				'account.invoice': (lambda self, cr, uid, ids, c={}: ids, ['invoice_line'], 20),
+				'account.invoice.tax': (_get_invoice_tax, None, 20),
+				'account.invoice.line': (_get_invoice_line, ['price_unit','invoice_line_tax_id','quantity','discount','invoice_id'], 20),
+			},
+			multi='all'),
+		#float("Original Amount", digits_compute=dp.get_precision('Account')),
 		'amount_untaxed': fields.function(_amount_all, digits_compute=dp.get_precision('Account'), string='Untaxed',
 			store={
 				'account.invoice': (lambda self, cr, uid, ids, c={}: ids, ['invoice_line'], 20),
@@ -100,6 +107,9 @@ class account_invoice(osv.osv):
 			},
 			multi='all'),
 	}
+	_defaults = {
+		'global_discount': 0.0,
+	}
 
 	def finalize_invoice_move_lines(self, cr, uid, invoice_browse, move_lines):
 		"""finalize_invoice_move_lines(cr, uid, invoice, move_lines) -> move_lines
@@ -110,7 +120,7 @@ class account_invoice(osv.osv):
 		:return: the (possibly updated) final move_lines to create for this invoice
 		"""
 		#if invoice_browse.global_discount > 0.00:
-		#temp = {}
+		
 		account_discount_id = self.pool.get('account.account').search(cr,uid,[('flag_discount','=',True)])
 		if account_discount_id:
 			account_discount_id = account_discount_id[0]
@@ -121,6 +131,7 @@ class account_invoice(osv.osv):
 		for m in move_lines:
 			if m[2]['credit'] > 0.0:
 				total_amount += m[2]['credit']
+
 		new_line = {'analytic_account_id': False, 'tax_code_id': False, 'analytic_lines': [],
 			'tax_amount': False, 'name': _('Global Discount'), 'ref': '',
 			'analytics_id': False, 'currency_id': False, 'debit': False ,
@@ -139,20 +150,24 @@ class account_invoice(osv.osv):
 				if m[2]['debit'] > 0.0:
 					#print m[2]['debit']
 					m[2]['debit'] -= discount_amount
-		#move_lines += [(0,0,new_line)]
+		#print move_lines 
 		precisione = self.pool.get('decimal.precision').precision_get(cr, 1, 'Account')
 		debit=credit=0.0
 		for m in move_lines:
-			#print m[2]['debit'], "\t", m[2]['credit']
-			debit += round(m[2]['debit'], precisione)
-			credit += round(m[2]['credit'], precisione)
+			#print round(m[2]['debit'], precisione), "\t", round(m[2]['credit'], precisione)
+			m[2]['debit'] = round(m[2]['debit'], precisione)
+			m[2]['credit'] = round(m[2]['credit'], precisione)
+			debit += m[2]['debit']
+			credit += m[2]['credit']
 		precision_diff = round(credit - debit, precisione)
 		#print precision_diff
-		if precision_diff < 0.0:
-			new_line['credit']=abs(precision_diff)
-		else:
-			new_line['debit']=precision_diff
-		move_lines += [(0,0,new_line)]
+		if precision_diff != 0.0:
+			if precision_diff < 0.0:
+				new_line['credit']=abs(precision_diff)
+			else:
+				new_line['debit']=precision_diff
+			move_lines += [(0,0,new_line)]
+		#print move_lines
 		return move_lines
 
 account_invoice()
