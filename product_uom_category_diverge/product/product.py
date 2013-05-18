@@ -1,12 +1,14 @@
-# -*- coding: utf-8 -*-
+# -*- encoding: utf-8 -*-
 ##############################################################################
-#    
-#    Copyright (C) 2013 Francesco OpenCode Apruzzese (<cescoap@gmail.com>)
-#    All Rights Reserved
+#
+#    OpenERP, Open Source Management Solution
+#    Copyright (c) 2012 Andrea Cometa All Rights Reserved.
+#                       www.andreacometa.it
+#                       openerp@andreacometa.it
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -33,9 +35,14 @@ class product_product(osv.osv):
 		for product in products:
 			diverge = False
 			uom_id = product.uom_id and product.uom_id.category_id and product.uom_id.category_id.id or False
-			uom_po_id = product.uom_po_id and product.uom_po_id.category_id and product.uom_po_id.category_id.id or False
-			if uom_id and uom_po_id and uom_id != uom_po_id:
-				diverge = True
+			move_ids = self.pool.get('stock.move').search(cr, uid, [('product_id', '=', product.id), ('product_uom', '!=', product.uom_id.id)])
+			move_uom_ids = self.pool.get('stock.move').read(cr,uid,move_ids, ['product_uom'])
+			if move_uom_ids:
+				categ_ids = self.pool.get('product.uom').read(cr,uid,move_uom_ids,['category_id'])
+				for categ_id in categ_ids:
+				#uom_po_id = product.uom_po_id and product.uom_po_id.category_id and product.uom_po_id.category_id.id or False
+					if uom_id and categ_id and uom_id != categ_id:
+						diverge = True
 			res.update({product.id:diverge})
 		return res
 
