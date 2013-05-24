@@ -154,8 +154,10 @@
 			<field name="arch" type="xml">
 				<tree string="Invoice for Salesagent">
 					<field name="number"/>
+					<field name="date_invoice"/>
 					<field name="partner_id"/>
 					<field name="salesagent_id"/>
+					<field name="commission"/>
 					<field name="amount_untaxed"/>
 					<field name="amount_total"/>
 				</tree>
@@ -171,6 +173,7 @@
 			<field name="res_model">account.invoice</field>
 			<field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
+			<field name="limit">40</field>
 			<field name="view_id" ref="invoice_tree_salesagent_total"/>
 			<field name="domain">[('salesagent_id', '!=', False)]</field>
 		</record>
