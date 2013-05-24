@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-24 09:10+0000\n"
-"PO-Revision-Date: 2013-05-24 09:10+0000\n"
+"POT-Creation-Date: 2013-05-24 10:46+0000\n"
+"PO-Revision-Date: 2013-05-24 10:46+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -64,9 +64,10 @@ msgid "Commission"
 msgstr "Provvigione"
 
 #. module: salesagent_commissions
-#: view:res.partner:0
-msgid "Details"
-msgstr "Dettagli"
+#: model:ir.actions.act_window,name:salesagent_commissions.act_wzd_payment_cancellation_view
+#: view:wzd.payment_cancellation:0
+msgid "Commission Payment Cancellation"
+msgstr "Annullamento Pagam,ento Provvigioni"
 
 #. module: salesagent_commissions
 #: view:wzd.commissions_payment:0
@@ -74,14 +75,19 @@ msgid "Payment date"
 msgstr "Data Pagamento"
 
 #. module: salesagent_commissions
+#: field:account.invoice,salesagent_id:0
+#: field:account.invoice.line,salesagent_id:0
+#: model:ir.actions.act_window,name:salesagent_commissions.action_partner_form_salesagent
+#: view:res.partner:0
+#: field:res.partner,salesagent:0
+#: field:res.partner,salesagent_for_customer_id:0
+msgid "Salesagent"
+msgstr "Agenti"
+
+#. module: salesagent_commissions
 #: view:account.invoice.line:0
 msgid "Group by Invoice"
 msgstr "Raggruppa per fattura"
-
-#. module: salesagent_commissions
-#: view:res.partner:0
-msgid "Commissions for product"
-msgstr "Provvigione per prodotto"
 
 #. module: salesagent_commissions
 #: field:account.invoice.line,commission_percentage:0
@@ -110,15 +116,14 @@ msgid "wzd.payment_cancellation"
 msgstr "wzd.payment_cancellation"
 
 #. module: salesagent_commissions
-#: view:res.partner:0
 #: field:res.partner,customer_for_salesagent_ids:0
 msgid "Customers"
 msgstr "Clienti"
 
 #. module: salesagent_commissions
-#: model:ir.model,name:salesagent_commissions.model_product_category
-msgid "Product Category"
-msgstr "Categoria Prodotto"
+#: view:res.partner:0
+msgid "Commissions Details"
+msgstr "Commissions Details"
 
 #. module: salesagent_commissions
 #: field:account.invoice.line,reconciled:0
@@ -141,6 +146,11 @@ msgstr "Calcola Provvigione da prezzo fisso"
 #: field:account.invoice.line,paid_commission:0
 msgid "Paid"
 msgstr "Pagato"
+
+#. module: salesagent_commissions
+#: view:account.invoice:0
+msgid "Commmissions"
+msgstr "Provvigioni"
 
 #. module: salesagent_commissions
 #: view:wzd.percentage_calcolate:0
@@ -201,6 +211,11 @@ msgid "Payment Commission Date"
 msgstr "Data Pagamento Provvigione"
 
 #. module: salesagent_commissions
+#: view:res.partner:0
+msgid "Commissions for products"
+msgstr "Provvigioni per prodotto"
+
+#. module: salesagent_commissions
 #: code:addons/salesagent_commissions/wizard/wizard.py:62
 #: code:addons/salesagent_commissions/wizard/wizard.py:93
 #, python-format
@@ -213,14 +228,9 @@ msgid "Riepilogo"
 msgstr "Riepilogo"
 
 #. module: salesagent_commissions
-#: field:account.invoice,salesagent_id:0
-#: field:account.invoice.line,salesagent_id:0
-#: model:ir.actions.act_window,name:salesagent_commissions.action_partner_form_salesagent
 #: view:res.partner:0
-#: field:res.partner,salesagent:0
-#: field:res.partner,salesagent_for_customer_id:0
-msgid "Salesagent"
-msgstr "Agenti"
+msgid "Details"
+msgstr "Dettagli"
 
 #. module: salesagent_commissions
 #: model:ir.model,name:salesagent_commissions.model_wzd_commissions_payment
@@ -262,6 +272,11 @@ msgid "Invalid Operation!"
 msgstr "Operazione non valida!"
 
 #. module: salesagent_commissions
+#: model:ir.model,name:salesagent_commissions.model_product_category
+msgid "Product Category"
+msgstr "Categoria Prodotto"
+
+#. module: salesagent_commissions
 #: sql_constraint:account.move.line:0
 msgid "Wrong credit or debit value in accounting entry !"
 msgstr "Valore di credito o debito errato nella registrazione contabile !"
@@ -291,12 +306,6 @@ msgstr "Annullamento"
 #: view:account.invoice.line:0
 msgid "Not paid"
 msgstr "Non Pagato"
-
-#. module: salesagent_commissions
-#: model:ir.actions.act_window,name:salesagent_commissions.act_wzd_payment_cancellation_view
-#: view:wzd.payment_cancellation:0
-msgid "Commission Payment Cancellation"
-msgstr "Annullamento Pagam,ento Provvigioni"
 
 #. module: salesagent_commissions
 #: model:res.groups,name:salesagent_commissions.group_salesagent_manager

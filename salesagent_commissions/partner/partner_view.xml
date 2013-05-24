@@ -21,12 +21,12 @@
 				<page string="Notes" position="after">
 					<page string="Salesagent Details" attrs="{'invisible': [('salesagent', '=', 0)]}"
 						groups="salesagent_commissions.group_salesagent_user">
+						<field name="customer_for_salesagent_ids" colspan="4" nolabel="1" />
+					</page>
+					<page string="Commissions Details" groups="salesagent_commissions.group_salesagent_user">
 						<separator string="Commissions" colspan="4" />
 						<field name="commission" colspan="4" nolabel="1"/>
-						<separator string="Customers" colspan="4"/>
-						<field name="customer_for_salesagent_ids" colspan="4" nolabel="1"/>
-					</page>
-					<page string="Commissions for product" groups="salesagent_commissions.group_salesagent_user">
+						<separator string="Commissions for products" colspan="4" />
 						<field name="product_provvigioni_ids" colspan="4" nolabel="1">
 							<tree string="Details" editable="top">
 								<field name="name"/>
