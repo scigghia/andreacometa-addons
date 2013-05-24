@@ -157,7 +157,7 @@
 					<field name="date_invoice"/>
 					<field name="partner_id"/>
 					<field name="salesagent_id"/>
-					<field name="commission"/>
+					<field name="commission" sum="Commmissions"/>
 					<field name="amount_untaxed"/>
 					<field name="amount_total"/>
 				</tree>
