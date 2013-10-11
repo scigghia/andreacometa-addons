@@ -16,9 +16,9 @@
 			<td class="w10"><p class="centered">Scadenza</p></td>
 			<td class="w10"><p class="centered">Fattura</p></td>
 			<td class="w15"><p class="centered">Pagamento</p></td>
-			<td class="w10"><p class="centered">Residuo</p></td>
 			<td class="w10"><p class="centered">Dare</p></td>
 			<td class="w10"><p class="centered">Avere</p></td>
+			<td class="w10"><p class="centered">Residuo</p></td>
 		</tr>
 	</table>
 		
@@ -42,9 +42,9 @@
 						<td class="w10">&nbsp;</td>
 						<td class="w10">&nbsp;</td>
 						<td class="w15"><b>TOTALE SCADENZA</b></td>
-						<td class="w10"><p style="text-align:right;"><b>${parziale_importo}</b></p></td>
 						<td class="w10"><p style="text-align:right;"><b>${parziale_dare}</b></p></td>
 						<td class="w10"><p style="text-align:right;"><b>${parziale_avere}</b></p></td>
+						<td class="w10"><p style="text-align:right;"><b>${parziale_importo}</b></p></td>
 					</tr>
 					<tr><td colspan=8>&nbsp;</td></tr>
 				%endif
@@ -60,9 +60,9 @@
 				<td class="w10"><p style="text-align:left;">${line.date_maturity or line.date}</p></td>
 				<td class="w10"><p style="text-align:left;">${line.invoice.number or line.name or ''}</p></td>
 				<td class="w15"><p style="text-align:left;">${line.invoice.payment_term and line.invoice.payment_term.name or ''}</p></td>
-				<td class="w10"><p style="text-align:right;">${formatLang(line.amount_residual or 0.00, digits=get_digits(dp='Account'))}</p></td>
 				<td class="w10"><p style="text-align:right;">${formatLang(line.debit or 0.00, digits=get_digits(dp='Account'))}</p></td>
 				<td class="w10"><p style="text-align:right;">${formatLang(line.credit or 0.00, digits=get_digits(dp='Account'))}</p></td>
+				<td class="w10"><p style="text-align:right;">${formatLang(line.amount_residual or 0.00, digits=get_digits(dp='Account'))}</p></td>
 			</tr>
 			%if line.debit == 0.0:
 				<%tot_importo -= line.amount_residual %>
@@ -84,9 +84,9 @@
 			<td class="w10">&nbsp;</td>
 			<td class="w10">&nbsp;</td>
 			<td class="w15"><b>TOTALE SCADENZA</b></td>
-			<td class="w10"><p style="text-align:right;"><b>${parziale_importo}</b></p></td>
 			<td class="w10"><p style="text-align:right;"><b>${parziale_dare}</b></p></td>
 			<td class="w10"><p style="text-align:right;"><b>${parziale_avere}</b></p></td>
+			<td class="w10"><p style="text-align:right;"><b>${parziale_importo}</b></p></td>
 		</tr>
 		<tr><td colspan=8>&nbsp;</td></tr>
 
@@ -97,9 +97,9 @@
 			<td class="w10">&nbsp;</td>
 			<td class="w10">&nbsp;</td>
 			<td class="w15"><b>TOTALE COMPLESSIVO</b></td>
-			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_importo}</p></td>
 			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_dare}</p></td>
 			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_avere}</p></td>
+			<td class="w10"><p style="text-align:right; font-weight: bold;">${tot_importo}</p></td>
 		</tr>
     </table>
     
