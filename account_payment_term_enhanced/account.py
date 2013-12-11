@@ -138,7 +138,10 @@ days (otherwise it's based on the beginning of the month)."),
                     else:
                         start_date = datetime.strptime(date_ref, '%Y-%m-%d')
                     # print "start_date: %s - days: %s" % (start_date, line.days)
-                    next_date = (start_date + relativedelta(days=line.days))
+                    if line.monthly:
+                        next_date = (start_date + relativedelta(months=line.days))
+                    else:
+                        next_date = (start_date + relativedelta(days=line.days))
                     # print "next_date: %s" % next_date
                     # print ">days2: %s" % line.days2
                     if line.days2 < 0:
@@ -167,8 +170,12 @@ class account_payment_term_line(osv.osv):
             help="Start Day of the month, set -1 for the last day of the curre\
 nt month. If it's positive, it gives the day of the next month. Set 0 for net \
 days (otherwise it's based on the beginning of the month)."),
+        'monthly': fields.boolean(
+            'Monthly',
+            help="If checked, the number in days/month will be months"),
     }
     _defaults = {
         'start_day': 0,
+        'monthly': False,
     }
 account_payment_term_line()
