@@ -137,23 +137,20 @@ days (otherwise it's based on the beginning of the month)."),
                             relativedelta(days=line.start_day, months=1))
                     else:
                         start_date = datetime.strptime(date_ref, '%Y-%m-%d')
-                    # print "start_date: %s - days: %s" % (start_date, line.days)
                     if line.monthly:
-                        next_date = (start_date + relativedelta(months=line.days))
+                        next_date = (start_date +
+                                     relativedelta(months=line.days))
                     else:
-                        next_date = (start_date + relativedelta(days=line.days))
-                    # print "next_date: %s" % next_date
-                    # print ">days2: %s" % line.days2
+                        next_date = (start_date +
+                                     relativedelta(days=line.days))
                     if line.days2 < 0:
                         next_first_date = (next_date +
                                            relativedelta(day=1, months=1))
                         # Getting 1st of next month
                         next_date = (next_first_date +
                                      relativedelta(days=line.days2))
-                        # print "     >next_first_date: %s next_date: %s" % (next_first_date, next_date)
                     if line.days2 > 0:
                         next_date += relativedelta(day=line.days2, months=1)
-                        # print "     >next_date: %s" % (next_date)
                     result.append((next_date.strftime('%Y-%m-%d'), amt))
                     amount -= amt
         return result
