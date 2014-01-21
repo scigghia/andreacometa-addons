@@ -35,6 +35,10 @@
 			<field name="arch" type="xml">
 				<field name="days2" position="before">
 					<field name="start_day" colspan="4"/>
+					<field name="monthly" colspan="4"/>
+				</field>
+				<field name="days" position="replace">
+					<field name="days" string="days/months"/>
 				</field>
 			</field>
    		</record>
@@ -46,6 +50,10 @@
 			<field name="arch" type="xml">
 				<field name="days2" position="before">
 					<field name="start_day"/>
+					<field name="monthly"/>
+				</field>
+				<field name="days" position="replace">
+					<field name="days" string="days/months"/>
 				</field>
 			</field>
    		</record>

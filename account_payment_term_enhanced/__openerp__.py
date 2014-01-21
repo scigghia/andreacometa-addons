@@ -7,8 +7,8 @@
 #                       openerp@andreacometa.it
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
+#    it under the terms of the GNU Affero General Public License as published
+#    by the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
 #    This program is distributed in the hope that it will be useful,
@@ -22,17 +22,19 @@
 ##############################################################################
 
 {
-	'name': 'Account Payment Term Enhanced',
-	'version': '1.1',
-	'category': 'Accounting & Finance',
-	'description': """ITA: Aggiunge la possibilità di calcolare le scadenze ripartendole equamente\n
-ENG: Adds the ability to calculate maturities basing them equally""",
-	'author': 'www.andreacometa.it',
-	'website': 'http://www.andreacometa.it',
-	'depends': ['account'],
-	'update_xml': [ 'account_view.xml',],
-	'installable': True,
-	'active': False,
-	'images' : ['images/image.png'],
+    'name': 'Account Payment Term Enhanced',
+    'version': '1.1',
+    'category': 'Accounting & Finance',
+    'description': """
+ITA: Aggiunge la possibilità di calcolare le scadenze ripartendole equamente
+     Permette di calcolare le scadenze per mese oltre che per giorni.
+ENG: Adds the ability to calculate maturities basing them equally.
+     Adds due date calc based on months instead days""",
+    'author': 'www.andreacometa.it',
+    'website': 'http://www.andreacometa.it',
+    'depends': ['account'],
+    'update_xml': ['account_view.xml', ],
+    'installable': True,
+    'active': False,
+    'images': ['images/image.png'],
 }
-
