@@ -26,22 +26,23 @@ from osv import fields, osv
 
 class account_invoice(osv.osv):
 
-	_name = "account.invoice"
-	_inherit = "account.invoice"
+    _name = "account.invoice"
+    _inherit = "account.invoice"
 
-	def unlink(self, cr, uid, ids, context=None):
-		# ----- Cicla gli indici per scrivere nella tabella di recupero protocolli
-		for account_id in ids:
-			protocollo_obj = self.browse(cr, uid, account_id)
-			protocollo = protocollo_obj.internal_number
-			sequence_id = protocollo_obj.journal_id.sequence_id.id
-			if protocollo:
-				data = self.browse(cr, uid, account_id).date_invoice
-				self.pool.get('ir.protocolli_da_recuperare').create(cr, uid,
-					{'name':'account.journal', 
-					'protocollo':protocollo,
-					'data':data,
-					'sequence_id' : sequence_id, })
-		return super(account_invoice, self).unlink(cr, uid, ids, context=None)
+    def unlink(self, cr, uid, ids, context=None):
+        # ----- Cicla gli indici per scrivere nella tabella di recupero protocolli
+        for account_id in ids:
+            protocollo_obj = self.browse(cr, uid, account_id)
+            print '============', protocollo_obj.internal_number
+            protocollo = protocollo_obj.internal_number
+            sequence_id = protocollo_obj.journal_id.sequence_id.id
+            if protocollo:
+                data = self.browse(cr, uid, account_id).date_invoice
+                self.pool.get('ir.protocolli_da_recuperare').create(cr, uid,
+                    {'name':'account.journal', 
+                    'protocollo':protocollo,
+                    'data':data,
+                    'sequence_id' : sequence_id, })
+        return super(account_invoice, self).unlink(cr, uid, ids, context=None)
 
 account_invoice()

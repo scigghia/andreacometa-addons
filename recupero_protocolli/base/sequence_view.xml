@@ -6,7 +6,7 @@
         <record id="recupero_protocolli_tree_view" model="ir.ui.view">
             <field name="name">ir.protocolli_da_recuperare.tree</field>
             <field name="model">ir.protocolli_da_recuperare</field>
-            <field name="type">form</field>
+            <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree string="Protocolli da recuperare" editable="top">
                     <field name="name"/>
@@ -32,7 +32,7 @@
         </record>
 
         <record id="action_recupero_protocolli" model="ir.actions.act_window">
-            <field name="name">Sequenze da recuperare</field>
+            <field name="name">Recupero Protocolli</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">ir.protocolli_da_recuperare</field>
             <field name="view_type">form</field>
@@ -42,6 +42,7 @@
             <field name="context">{}</field>
         </record>
 
-        <menuitem action="action_recupero_protocolli" id="menu_recupero_protocolli" parent="base.next_id_5"/>
+        <menuitem action="action_recupero_protocolli" id="menu_recupero_protocolli"
+            string="Recupero Protocolli" parent="base.next_id_5"/>
     </data>
 </openerp>
