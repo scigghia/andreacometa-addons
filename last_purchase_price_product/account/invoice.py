@@ -7,7 +7,8 @@
 #                       openerp@andreacometa.it
 #
 #    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published by
+#    it under the terms of the GNU Affero General Public License as
+#    published by
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
 #
@@ -22,25 +23,27 @@
 ##############################################################################
 
 
-from osv import osv, fields
+from osv import osv
 
 
-class product_template(osv.osv):
+class account_invoice(osv.osv):
 
-    _inherit = "product.template"
+    _inherit = "account.invoice"
 
-    _columns = {
-        'cost_method': fields.selection(
-            [('standard','Standard Price'),
-             ('average','Average Price'),
-             ('lpp', 'Last Purchase Price'),
-             ('lip', 'Last Invoice Price'),
-             ], 'Costing Method', required=True,
-            help="Standard Price: the cost price is fixed and recomputed periodically (usually at the end of the year), Average Price: the cost price is recomputed at each reception of products, Last Purchase Price: the cost price is the price of last purchase of products."),
-    }
+    def action_number(self, cr, uid, ids, context=None):
+        res = super(account_invoice, self).action_number(cr, uid, ids,
+                                                         context=None)
+        product_obj = self.pool.get('product.product')
+        for inv in self.browse(cr, uid, ids, context):
+            # ----- Keep only supplier invoice
+            if inv.type != 'in_invoice':
+                continue
+            for line in inv.invoice_line:
+                # ----- keep only line with product
+                if line.product_id and line.product_id.cost_method == 'lip':
+                    product_obj.write(cr, uid, [line.product_id.id],
+                                      {'standard_price': line.price_unit})
+        return res
 
-    _defaults = {
-        'cost_method': 'standard',
-    }
 
-product_template()
+account_invoice()

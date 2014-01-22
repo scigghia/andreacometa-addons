@@ -21,26 +21,4 @@
 #
 ##############################################################################
 
-
-from osv import osv, fields
-
-
-class product_template(osv.osv):
-
-    _inherit = "product.template"
-
-    _columns = {
-        'cost_method': fields.selection(
-            [('standard','Standard Price'),
-             ('average','Average Price'),
-             ('lpp', 'Last Purchase Price'),
-             ('lip', 'Last Invoice Price'),
-             ], 'Costing Method', required=True,
-            help="Standard Price: the cost price is fixed and recomputed periodically (usually at the end of the year), Average Price: the cost price is recomputed at each reception of products, Last Purchase Price: the cost price is the price of last purchase of products."),
-    }
-
-    _defaults = {
-        'cost_method': 'standard',
-    }
-
-product_template()
+import invoice
