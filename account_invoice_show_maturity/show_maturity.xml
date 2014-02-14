@@ -18,5 +18,21 @@
          </field>
     </record>
 
+    <record id="show_maturity_supplier" model="ir.ui.view">
+         <field name="name">show_maturity.supplier.form</field>
+         <field name="model">account.invoice</field>
+         <field name="inherit_id" ref="account.invoice_supplier_form"/>
+         <field name="arch" type="xml">
+             <field name="payment_ids" position="before">
+                <field name="maturity_ids" nolabel="1">
+                    <tree string="Maturities">
+                        <field name="date_maturity"/>
+                        <field name="debit" string="Amount"/>
+                    </tree>
+                </field>
+            </field>
+         </field>
+    </record>
+
 </data>
 </openerp>
