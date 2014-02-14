@@ -27,7 +27,7 @@
                 <field name="maturity_ids" nolabel="1">
                     <tree string="Maturities">
                         <field name="date_maturity"/>
-                        <field name="debit" string="Amount"/>
+                        <field name="credit" string="Amount"/>
                     </tree>
                 </field>
             </field>
