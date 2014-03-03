@@ -25,29 +25,31 @@ from osv import osv
 
 class partial_picking(osv.osv_memory):
 
-	_inherit = 'stock.partial.picking'
+    _inherit = 'stock.partial.picking'
 
-	def do_partial(self, cr, uid, ids, context=None):
-		if context is None:
-			context = {} 
-		res = super(partial_picking, self).do_partial(cr, uid, ids, context=context)
-		pick_obj = self.pool.get('stock.picking')
-		purchase_obj = self.pool.get('purchase.order')
-		picking_ids = context.get('active_ids', False)
-		partial = self.browse(cr, uid, ids[0], context=context)
-		pick_list = pick_obj.browse(cr, uid, picking_ids, context=context)
-		for pick in pick_list:
-			if pick.type == 'in' and pick.origin:
-				order_ids = purchase_obj.search(cr, uid, [('name','=',pick.origin)], limit=1)
-				for order_id in order_ids:
-					order = purchase_obj.browse(cr, uid, order_id)
-					for move in partial.move_ids:
-						if move.product_id.cost_method == 'lpp':
-							product_cost = 0.0
-							for line in order.order_line:
-								if line.product_id.id == move.product_id.id:
-									product_cost = line.price_unit
-							self.pool.get('product.product').write(cr, uid, [move.product_id.id], {'standard_price': product_cost})
-		return res
+    def do_partial(self, cr, uid, ids, context=None):
+        if context is None:
+            context = {} 
+        res = super(partial_picking, self).do_partial(cr, uid, ids,
+                                                      context=context)
+        pick_obj = self.pool.get('stock.picking')
+        purchase_obj = self.pool.get('purchase.order')
+        picking_ids = context.get('active_ids', False)
+        partial = self.browse(cr, uid, ids[0], context=context)
+        pick_list = pick_obj.browse(cr, uid, picking_ids,
+                                    context=context)
+        for pick in pick_list:
+            if pick.type == 'in' and pick.purchase_id:
+                order = pick.purchase_id
+                for move in partial.move_ids:
+                    if move.product_id.cost_method == 'lpp':
+                        product_cost = 0.0
+                        for line in order.order_line:
+                            if line.product_id.id == move.product_id.id:
+                                product_cost = line.price_unit
+                        self.pool.get('product.product').write(
+                            cr, uid, [move.product_id.id],
+                            {'standard_price': product_cost})
+        return res
 
 partial_picking()
