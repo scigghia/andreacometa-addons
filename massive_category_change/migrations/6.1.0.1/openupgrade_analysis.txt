@@ -1,0 +1,4 @@
+---massive_category_change---
+new xml-id of model ir.actions.act_window: massive_category_change.action_massive_category_change_wizard
+new xml-id of model ir.ui.view: massive_category_change.wzd_massive_category_change_wizard
+new xml-id of model ir.values: massive_category_change.act_massive_category_change_wizard

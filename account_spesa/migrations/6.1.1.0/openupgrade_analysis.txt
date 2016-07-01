@@ -1,0 +1,14 @@
+---account_spesa---
+account_spesa / account.payment.term.line / spesa_id (many2one)           : NEW relation: account.spesa
+account_spesa / account.spesa            / account_id (many2one)         : NEW relation: account.account
+account_spesa / account.spesa            / name (char)                   : NEW 
+account_spesa / account.spesa            / price (float)                 : NEW 
+account_spesa / account.spesa            / tax_id (many2one)             : NEW relation: account.tax
+account_spesa / account.spesa            / type (selection)              : NEW selection_keys: ['bank', 'delivery']
+new xml-id of model ir.actions.act_window: account_spesa.action_account_spesa
+new xml-id of model ir.model.access: account_spesa.access_account_spesa
+new xml-id of model ir.ui.menu: account_spesa.menu_account_spesa
+new xml-id of model ir.ui.view: account_spesa.account_spesa_filter
+new xml-id of model ir.ui.view: account_spesa.account_spesa_form
+new xml-id of model ir.ui.view: account_spesa.account_spesa_tree
+new xml-id of model ir.ui.view: account_spesa.view_payment_term_line_spesa_form

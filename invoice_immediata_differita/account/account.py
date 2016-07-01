@@ -33,15 +33,14 @@ class account_invoice(osv.osv):
         ir_values_obj = self.pool.get('ir.config_parameter')
         invoice = self.browse(cr, uid, ids, context)[0]
         report_name = False
-        if invoice.type = 'out_refund':
+        if invoice.type == 'out_refund':
             report_name = ir_values_obj.get_param(cr, uid, 'report_nota_credito', False)
-        elif invoice.type = 'out_invoice' and invoice.immediate:
+        elif invoice.type == 'out_invoice' and invoice.immediate:
             report_name = ir_values_obj.get_param(cr, uid, 'report_invoice_immediate', False)
-        elif invoice.type = 'out_invoce' and not invoice.immediate:
+        elif invoice.type == 'out_invoice' and not invoice.immediate:
             report_name = ir_values_obj.get_param(cr, uid, 'report_invoice_differita', False)
         if not report_name:
             raise osv.except_osv(_('Attenzione'), _('Impostare un report di stampa'))
-            return False
         return {
             'type':'ir.actions.report.xml',
             'report_name': report_name,

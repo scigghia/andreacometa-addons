@@ -1,0 +1,12 @@
+---account_payment_term_enhanced---
+account_payment_term_enhanced / account.payment.term     / days (integer)                : NEW required: required, req_default: 0
+account_payment_term_enhanced / account.payment.term     / days2 (integer)               : NEW required: required, req_default: 0
+account_payment_term_enhanced / account.payment.term     / fairly (boolean)              : NEW 
+account_payment_term_enhanced / account.payment.term     / maturities (integer)          : NEW 
+account_payment_term_enhanced / account.payment.term     / monthly (boolean)             : NEW 
+account_payment_term_enhanced / account.payment.term     / start_day (integer)           : NEW required: required, req_default: 0
+account_payment_term_enhanced / account.payment.term.line / monthly (boolean)             : NEW 
+account_payment_term_enhanced / account.payment.term.line / start_day (integer)           : NEW required: required, req_default: 0
+new xml-id of model ir.ui.view: account_payment_term_enhanced.view_payment_term_form_enhanced
+new xml-id of model ir.ui.view: account_payment_term_enhanced.view_payment_term_line_form_enhanced
+new xml-id of model ir.ui.view: account_payment_term_enhanced.view_payment_term_line_tree_enhanced

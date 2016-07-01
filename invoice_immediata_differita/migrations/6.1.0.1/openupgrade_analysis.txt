@@ -1,0 +1,4 @@
+---invoice_immediata_differita---
+invoice_immediata_differita / account.invoice          / immediate (boolean)           : NEW 
+new xml-id of model ir.ui.view: invoice_immediata_differita.view_account_invoice_filter_imm_diff
+new xml-id of model ir.ui.view: invoice_immediata_differita.view_invoice_form_imm_diff

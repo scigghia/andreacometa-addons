@@ -1,4 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-
-"access_account_journal_group_user","account_journal_group_user","model_account_journal_group","account.group_account_user","1","1","1","1"
-"access_account_journal_group_manager","account_journal_group_manager","model_account_journal_group","account.group_account_manager","1","1","1","1"

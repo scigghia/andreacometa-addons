@@ -1,0 +1,5 @@
+---customer_config_parameters_manager---
+customer_config_parameters_manager / ir.config_parameter      / custom (boolean)              : NEW 
+new xml-id of model ir.actions.act_window: customer_config_parameters_manager.action_ir_config_parameters
+new xml-id of model ir.ui.menu: customer_config_parameters_manager.menu_ir_config_parameters
+new xml-id of model ir.ui.view: customer_config_parameters_manager.view_ir_config_parameters_tree
